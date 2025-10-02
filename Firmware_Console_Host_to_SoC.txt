@@ -1,0 +1,16 @@
+Go to 
+	C:\intelFPGA\20.1\embedded 
+and execute Embedded_Command_Shell Windows batch file.
+
+Then in console go to project file: 
+	C:\Users\guill\OneDrive\Escritorio\DIXITAL_NMR_PulseSeq\HPS-DDS\Debug
+
+	cd OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/HPS-DDS/Debug
+
+Follow the steps in file follow indications in DE0-Nano-SoC_My_First_HPS.PDF
+	scp my_first_hps root@192.168.1.113:/home/root
+
+Poky 8.0 (Yocto Project 1.3 Reference Distro) 1.3 
+
+
+

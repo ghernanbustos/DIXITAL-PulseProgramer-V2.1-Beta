@@ -1,0 +1,184 @@
+--------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos, ghernanbustos@gmail.com
+--   FileName:         pulse_fsm.vhd
+--   Design Software:  Quartus Prime Lite Edition 22.1 Std Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   	Version 0.0 10/2024 
+--	
+--	  Brief: 
+-- 	
+-- 	Pulse sequencer fsm 
+--		Program mem holds 32 bit instructions word with 16LSB with two fields [op_code]+[data buffer address]
+--		op_code:
+--			8 bit Word used for multiplexing data to access at differents buffers 
+--		data buffer address:
+--			8 bit Word to access at buffers data to update in DDS registers 
+
+--		ctrl_reg_buffer := 
+
+--		The Address mem counter does not check max count overflow. 
+--		External async. reset or EOF word stored in mem are the two conditional to stop sequencing.
+
+--------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY fsm_pulse IS
+  port (
+		clk_pulse    				: 	IN  std_logic; -- clk_fsm_SingleTone 25Mhz
+		rst_n_pulse 				: 	IN  std_logic; -- External switch
+		start_pulse					: 	IN  std_logic; -- Push button tu start fsm
+		
+		buffer_fsm_endFlag		: 	IN  std_logic; 
+		end_pgr						: 	IN	 std_logic_vector(31 downto 0); -- Read EOF word to end the sequence.
+		
+		-- Pulse progr Mem Control Signal
+		rd_pulseMem					: 	OUT std_logic;  
+		wr_pulseMem					: 	OUT std_logic; 
+		en_pulseMem					: 	OUT std_logic;
+		clc_pulseMem				: 	OUT std_logic;
+		AddressMempulse			:	OUT std_logic_vector(5 downto 0);	
+		
+		-- dds block buffer Control	
+		ctrl_reg_buffer			:	OUT std_logic_vector(7 downto 0); -- reg to control buffer block
+		
+		-- Debugging flags
+		fsm_rdytoStart				:	OUT std_logic; -- to HPS 
+		fsm_end_flag				: 	OUT std_logic
+		
+  );
+END ENTITY fsm_pulse;
+------------------------------------------------
+ARCHITECTURE Behavioral OF fsm_pulse IS
+  -- Signals declarations
+  TYPE state_type IS (state_rst, state_1, state_2, state_3, state_4,state_5);	 
+  SIGNAL state : state_type; 					 
+  
+BEGIN
+state_transition: PROCESS (clk_pulse, rst_n_pulse, start_pulse) 	--sensitive list
+  	-- Variables declarations
+	VARIABLE countVarAddressPos 	: INTEGER RANGE 0 TO 63;	
+
+	BEGIN
+		IF (rst_n_pulse = '0') THEN   -- asynchronous reset
+			state <= state_rst;					-- start_pulse works as start or reset
+			countVarAddressPos := 0;
+			AddressMempulse <= std_logic_vector(to_unsigned(countVarAddressPos, AddressMempulse'length));
+			
+		ELSIF (clk_pulse'EVENT AND clk_pulse ='1') THEN   				-- Change State
+			CASE state IS
+				WHEN state_rst =>
+					IF (start_pulse = '1') THEN 
+						state <= state_1;	
+					ELSE 
+						state <= state_rst;
+					END IF;
+					
+				WHEN state_1 => -- Reads first element
+					state <= state_2;
+					AddressMempulse <= std_logic_vector(to_unsigned(countVarAddressPos, AddressMempulse'length));				
+
+				WHEN state_2 => -- check EOF
+					IF (end_pgr = x"FFFFFFFF") THEN 
+						state <= state_5;	
+					ELSE 
+						state <= state_3;
+					END IF;	
+					
+				WHEN state_3 =>	-- keep mem pgr position and set buffer control reg.	
+					IF (buffer_fsm_endFlag = '1') THEN 
+						state <= state_4;	
+					ELSE 
+						state <= state_3;
+					END IF;	
+					--AddressMempulse <= std_logic_vector(to_unsigned(countVarAddressPos, AddressMempulse'length));
+
+				WHEN state_4 =>	-- increase program pointer.
+					state <= state_1;
+					countVarAddressPos := countVarAddressPos + 1;		
+					--AddressMempulse <= std_logic_vector(to_unsigned(countVarAddressPos, AddressMempulse'length));
+					
+				WHEN state_5 =>	-- increase program pointer.
+					state <= state_5;
+
+			END CASE;
+		END IF;
+	END PROCESS state_transition;
+  
+  
+Output_logic: PROCESS (state)
+	BEGIN							
+ 		CASE state IS
+			WHEN state_rst => -- Reset State | clear mem on
+				rd_pulseMem			<= '0';	
+				wr_pulseMem			<= '0';	
+				en_pulseMem			<= '0';	
+				clc_pulseMem 		<= '1';	-- clear mem
+
+				ctrl_reg_buffer 	<= "00000000";	
+				
+				fsm_rdytoStart	 	<= '0';	-- flag to use with HPS
+				fsm_end_flag	 	<= '0';
+				
+			WHEN state_1 => -- pulse_pgr mem enable
+				rd_pulseMem			<= '1';	
+				wr_pulseMem			<= '0';	
+				en_pulseMem			<= '1';	
+				clc_pulseMem 		<= '0';	
+
+				ctrl_reg_buffer 	<= "00000000";	
+				
+				fsm_rdytoStart	 	<= '0';
+				fsm_end_flag	 	<= '0';
+
+			WHEN state_2 => --  
+				rd_pulseMem			<= '1';	
+				wr_pulseMem			<= '0';	
+				en_pulseMem			<= '1';	
+				clc_pulseMem 		<= '0';	
+
+				ctrl_reg_buffer 	<= "00000000";	-- fsm rst off, mux fsm block ctrls buffer, start fsm
+				
+				fsm_rdytoStart	 	<= '0';			
+				fsm_end_flag	 	<= '0';
+
+			WHEN state_3 => -- init buffer fsm
+				rd_pulseMem			<= '1';	
+				wr_pulseMem			<= '0';	
+				en_pulseMem			<= '1';	
+				clc_pulseMem 		<= '0';	
+
+				ctrl_reg_buffer 	<= "10110000";	-- fsm rst off, mux fsm block ctrls buffer, start fsm	
+				
+				fsm_rdytoStart	 	<= '0';
+				fsm_end_flag	 	<= '0';
+				
+			WHEN state_4 => --  increase mem pgr position
+				rd_pulseMem			<= '0';	
+				wr_pulseMem			<= '0';	
+				en_pulseMem			<= '0';	
+				clc_pulseMem 		<= '0';	
+
+				ctrl_reg_buffer 	<= "00000000";	-- Rst fsm  buffer
+				
+				fsm_rdytoStart	 	<= '0';
+				fsm_end_flag	 	<= '0';
+				
+			WHEN state_5 => --  increase mem pgr position
+				rd_pulseMem			<= '0';	
+				wr_pulseMem			<= '0';	
+				en_pulseMem			<= '0';	
+				clc_pulseMem 		<= '0';	
+
+				ctrl_reg_buffer 	<= "00000000";	-- Rst fsm  buffer
+				
+				fsm_rdytoStart	 	<= '0';
+				fsm_end_flag	 	<= '1'; -- fsm end
+
+		END CASE;
+	END PROCESS Output_logic; 
+END ARCHITECTURE Behavioral;

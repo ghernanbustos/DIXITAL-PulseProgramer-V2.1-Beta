@@ -1,0 +1,70 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- Ejemplo:
+--quartushelp.altera.com/15.0/mergedProjects/reference/glossary/def_mif.htm
+-- single-line comment
+WIDTH=16;
+DEPTH=32;
+ADDRESS_RADIX=UNS;				
+DATA_RADIX=BIN;
+CONTENT 
+BEGIN	
+-- [15..8 Address] + [7..0 FTW] 
+-- SysClock = 300Mhz (20Mhz Xcrist and x15 )
+--      FTW 90 mhz = 84,442,493,013,196.8
+
+--      FTW 90 mhz = 84,442,493,013,196
+--	01001100 11001100 11001100 11001100 11001100 11001100
+--      FTW 90 mhz = 84,442,493,013,197
+--	01001100 11001100 11001100 11001100 11001100 11001101
+
+--      FTW 60 mhz = 56,294,995,342,131.2
+--	00110011 00110011 00110011 00110011 00110011 00110011
+--	Address   :   
+		0   :   0000010001001100; -- MSB 0x4C
+		1   :   0000010111001100; -- 	  0xCC	
+		2   :   0000011011001100; -- 	  0xCC
+		3   :   0000011111001100; --	  0xCC	
+		4   :   0000100011001100; --	  0xCC	
+		5   :   0000100111001101; -- LSB 0x4D
+		6   :   0000000000000000;
+		7   :   0000000000000000;	
+		8   :   0000000000000000;
+		9   :   0000000000000000;
+		10  :   0000000000000000;
+		11  :   0000000000000000;
+		12  :   0000000000000000;
+		13  :   0000000000000000;
+		14  :   0000000000000000;
+		15  :   0000000000000000;
+		16  :   0000000000000000;
+		17  :   0000000000000000;
+		18  :   0000000000000000;
+		19  :   0000000000000000;
+		20  :   0000000000000000;
+		21  :   0000000000000000;
+		22  :   0000000000000000;
+		23  :   0000000000000000;
+		24  :   0000000000000000;
+		25  :   0000000000000000;
+		26  :   0000000000000000;
+		27  :   0000000000000000;
+		28  :   0000000000000000;
+		29  :   0000000000000000;
+		30  :   0000000000000000;
+		30  :   0000000000000000;
+		31  :   0000000000000000;
+
+ END;

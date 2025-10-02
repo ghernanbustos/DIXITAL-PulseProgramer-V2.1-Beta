@@ -1,0 +1,28 @@
+6. In QSys, select Tools - NIOS II Command Shell [gcc4].
+7. This will open a terminal. cd to your project directory. 
+8. Once in your project directory, type sopc-create-header-files. A message will appear in the 
+terminal stating that the header files have been generated. 
+9. In the NIOS terminal, create a folder called "software" with the command mkdir software. 
+Move the generated header files to the software folder using the command mv *.h software
+8
+10. Open the hps_0.h file in a text editor to view the generated base addresses and constant 
+names that you will use to memory map these IPs in your c code. Minimize this window.
+11. Go back to the NIOS terminal and close it. In QSys select "File" - "Save". Once saved, select 
+"Finish" at the bottom to return back to Quartus II.
+
+guill@DESKTOP-2HACMHO ~/OneDrive/Escritorio/dds9854/HPS-DDS/Debug
+$ scp HPS-DDS root@192.168.1.137:/home/root
+The authenticity of host '192.168.1.137 (192.168.1.137)' can't be established.
+ECDSA key fingerprint is SHA256:dwbpGGyAksQiqqLe0QwW4CTuT9HRlZgkm2NCKdWKwYA.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Could not create directory '/home/guill/.ssh' (No such file or directory).
+Failed to add the host to the list of known hosts (/home/guill/.ssh/known_hosts).
+root@192.168.1.137's password:
+HPS-DDS                                                                          100%   35KB   3.7MB/s   00:00
+
+guill@DESKTOP-2HACMHO ~/OneDrive/Escritorio/dds9854/HPS-DDS/Debug
+$
+
+
+

@@ -1,0 +1,16 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="6c2ca5c1edc6c3c83e09"/>
+  </project>
+  <file_info>
+    <file device="5CSEMA4U23C6" path="ddsAD9854.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <sld_infos>
+    <sld_info hpath="hps_dds_wrapper:inst25" name="inst25">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME hps_dds_wrapper HAS_SOPCINFO 1 GENERATION_ID 1730149620"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
+</sld_project_info>

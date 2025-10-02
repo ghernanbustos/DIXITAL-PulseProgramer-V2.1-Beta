@@ -1,0 +1,66 @@
+programSeq_1: 1 VENTANA PULSO SINC (100uS)
+mempos=[0],operation=[0],pgr_word=[0x00000008]; INIT
+mempos=[1],operation=[0],pgr_word=[0x00110018]; FTW    60Mhz
+mempos=[2],operation=[0],pgr_word=[0x00440002]; SINC phase incr
+mempos=[3],operation=[0],pgr_word=[0x00430084]; CHRONO1 + sinc modulation 
+mempos=[4],operation=[0],pgr_word=[0x00000008]; 
+mempos=[5],operation=[0],pgr_word=[0xFFFFFFFF]; 
+
+programSeq_2: Tres ventanas + ftw + PTW + Sinc
+mempos=[0],operation=[0],pgr_word=[0x00000008]; 
+mempos=[1],operation=[0],pgr_word=[0x00110000];
+mempos=[2],operation=[0],pgr_word=[0x00220000];  
+mempos=[3],operation=[0],pgr_word=[0x00330001]; 
+mempos=[4],operation=[0],pgr_word=[0x00550000];
+mempos=[5],operation=[0],pgr_word=[0x00110006]; 
+mempos=[6],operation=[0],pgr_word=[0x00220004]; 
+mempos=[7],operation=[0],pgr_word=[0x00330001]; 
+mempos=[8],operation=[0],pgr_word=[0x00550000]; 
+mempos=[9],operation=[0],pgr_word=[0x00110018]; 
+mempos=[10],operation=[0],pgr_word=[0x00440001]; 
+mempos=[11],operation=[0],pgr_word=[0x00430081]; 
+mempos=[12],operation=[0],pgr_word=[0x00000008]; 
+mempos=[13],operation=[0],pgr_word=[0xFFFFFFFF];  
+
+programSeq_3: DOS VENTANAS
+mempos=[0],operation=[0],pgr_word=[0x00000008]; INIT
+mempos=[1],operation=[0],pgr_word=[0x00110000]; FTW
+mempos=[2],operation=[0],pgr_word=[0x00330000]; CHRONO1
+mempos=[3],operation=[0],pgr_word=[0x00550000]; CHORNO2
+mempos=[4],operation=[0],pgr_word=[0x00110006]; FTW
+mempos=[5],operation=[0],pgr_word=[0x00330001]; CHRONO1
+mempos=[6],operation=[0],pgr_word=[0x00550000]; CHRONO2
+mempos=[7],operation=[0],pgr_word=[0x00000008]; INIT
+mempos=[8],operation=[0],pgr_word=[0xFFFFFFFF]; EOF
+
+programSeq_4: Tres ventanas
+mempos=[0],operation=[0],pgr_word=[0x00000008]; INIT
+mempos=[1],operation=[0],pgr_word=[0x00110000]; FTW
+mempos=[2],operation=[0],pgr_word=[0x00330001]; CHRONO1 2mS
+-
+mempos=[3],operation=[0],pgr_word=[0x00550000]; CHORNO2 2mS
+-
+mempos=[4],operation=[0],pgr_word=[0x00110006]; FTW
+mempos=[5],operation=[0],pgr_word=[0x00330001]; CHRONO1 2mS
+- 
+mempos=[6],operation=[0],pgr_word=[0x00550000]; CHRONO2 2mS
+-
+mempos=[7],operation=[0],pgr_word=[0x00110018]; FTW    60Mhz
+mempos=[8],operation=[0],pgr_word=[0x00440001]; SINC
+mempos=[9],operation=[0],pgr_word=[0x00430081]; CHRONO1 + sinc modulation
+-
+mempos=[10],operation=[0],pgr_word=[0x00000008]; 
+mempos=[11],operation=[0],pgr_word=[0xFFFFFFFF]; End of file
+==================================================
+mempos=[0],operation=[0],pgr_word=[0x00000008]; 
+mempos=[1],operation=[0],pgr_word=[0x00110000]; 
+mempos=[2],operation=[0],pgr_word=[0x00330001]; 
+mempos=[3],operation=[0],pgr_word=[0x00550000]; 
+mempos=[4],operation=[0],pgr_word=[0x00110006];
+mempos=[5],operation=[0],pgr_word=[0x00330001];
+mempos=[6],operation=[0],pgr_word=[0x00550000];
+mempos=[7],operation=[0],pgr_word=[0x00110018];
+mempos=[8],operation=[0],pgr_word=[0x00440001]; 
+mempos=[9],operation=[0],pgr_word=[0x00430081];
+mempos=[10],operation=[0],pgr_word=[0x00000008]; 
+mempos=[11],operation=[0],pgr_word=[0xFFFFFFFF]; 

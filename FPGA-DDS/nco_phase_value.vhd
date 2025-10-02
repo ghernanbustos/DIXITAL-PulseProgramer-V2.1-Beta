@@ -1,0 +1,42 @@
+-- Set nco phase word
+-- 100uS 
+-- desired_value : STD_LOGIC_VECTOR(31 downto 0) := "00000010100011110101110000101001"; 
+-- 20Us Fsys = 1mhz
+-- desired_value : STD_LOGIC_VECTOR(31 downto 0) := "00001100110011001100110011001101";
+-- 20Us Fsys = 2mhz reajusto el phase_inc
+-- desired_value : STD_LOGIC_VECTOR(31 downto 0) := "00000110011001100110011001100110";
+-- 20Us Fsys = 3mhz reajusto el phase_inc
+-- desired_value : STD_LOGIC_VECTOR(31 downto 0) := "00000100010001000100010001000100";
+-- 100Us Fsys = 3mhz reajusto el phase_inc
+-- desired_value : STD_LOGIC_VECTOR(31 downto 0) := "00000000110110100111010000001110";
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity nco_phase_value is
+    Port (
+        clk : in STD_LOGIC;
+        rst_n : in STD_LOGIC;
+        output_data : out STD_LOGIC_VECTOR(31 downto 0)
+    );
+end entity nco_phase_value;
+
+architecture Behavioral of nco_phase_value is
+    -- Define your desired 32-bit value here (e.g., 32'hA5A5A5A5)
+    constant desired_value : STD_LOGIC_VECTOR(31 downto 0) := "00000000110110100111010000001110"; 
+    signal output_reg : STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+begin
+    process (clk, rst_n)
+    begin
+        if rst_n = '0' then
+            output_reg <= (others => '0'); -- rst_n the output to all zeroes
+        elsif rising_edge(clk) then
+            output_reg <= desired_value; -- Set the output to the desired value on the rising edge of the clock
+        end if;
+    end process;
+
+    -- Assign the output signal to the registered value
+    output_data <= output_reg;
+end architecture Behavioral;

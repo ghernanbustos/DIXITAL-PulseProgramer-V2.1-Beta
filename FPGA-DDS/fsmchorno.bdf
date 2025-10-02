@@ -1,0 +1,468 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "graphic" (version "1.4"))
+(pin
+	(input)
+	(rect 224 336 392 352)
+	(text "INPUT" (rect 125 0 167 15)(font "Arial" (font_size 6)))
+	(text "clkFsm" (rect 5 0 57 16)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 157 22)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 216 352 392 368)
+	(text "INPUT" (rect 133 0 175 15)(font "Arial" (font_size 6)))
+	(text "rst_nFsm" (rect 5 0 75 21)(font "Intel Clear" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 92 12)(pt 117 12))
+		(line (pt 92 4)(pt 117 4))
+		(line (pt 121 8)(pt 176 8))
+		(line (pt 92 12)(pt 92 4))
+		(line (pt 117 4)(pt 121 8))
+		(line (pt 117 12)(pt 121 8))
+	)
+	(text "VCC" (rect 136 7 165 22)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 224 368 392 384)
+	(text "INPUT" (rect 125 0 167 15)(font "Arial" (font_size 6)))
+	(text "initFsm" (rect 5 0 60 21)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 157 22)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 176 400 392 416)
+	(text "INPUT" (rect 173 0 215 15)(font "Arial" (font_size 6)))
+	(text "chronoOverflow" (rect 5 0 126 21)(font "Intel Clear" ))
+	(pt 216 8)
+	(drawing
+		(line (pt 132 12)(pt 157 12))
+		(line (pt 132 4)(pt 157 4))
+		(line (pt 161 8)(pt 216 8))
+		(line (pt 132 12)(pt 132 4))
+		(line (pt 157 4)(pt 161 8))
+		(line (pt 157 12)(pt 161 8))
+	)
+	(text "VCC" (rect 176 7 205 22)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 40 384 288 400)
+	(text "INPUT" (rect 205 0 247 15)(font "Arial" (font_size 6)))
+	(text "addresspreload[5..0]" (rect 5 0 159 21)(font "Intel Clear" ))
+	(pt 248 8)
+	(drawing
+		(line (pt 164 12)(pt 189 12))
+		(line (pt 164 4)(pt 189 4))
+		(line (pt 193 8)(pt 248 8))
+		(line (pt 164 12)(pt 164 4))
+		(line (pt 189 4)(pt 193 8))
+		(line (pt 189 12)(pt 193 8))
+	)
+	(text "VCC" (rect 208 7 237 22)(font "Arial" (font_size 6)))
+)
+(pin
+	(output)
+	(rect 784 336 960 352)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "rdchr" (rect 90 0 128 16)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 784 352 960 368)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "wrchr" (rect 90 0 131 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 792 376 968 392)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "enchr" (rect 90 0 132 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 800 400 976 416)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "clcchr" (rect 90 0 134 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 792 416 991 432)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "ramMem[5..0]" (rect 90 0 193 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 792 432 981 448)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "fsm_flagend" (rect 90 0 183 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 792 480 968 496)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "rstchrono" (rect 90 0 161 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 792 512 968 528)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "enchrono" (rect 90 0 160 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 784 544 1022 560)
+	(text "OUTPUT" (rect 1 0 58 15)(font "Arial" (font_size 6)))
+	(text "setchronoprecount" (rect 90 0 232 21)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(symbol
+	(rect 408 312 720 520)
+	(text "fsm_chrono_write" (rect 5 0 135 16)(font "Arial" ))
+	(text "inst" (rect 8 192 33 208)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_fsm_chrono" (rect 0 0 116 16)(font "Arial" ))
+		(text "clk_fsm_chrono" (rect 21 27 137 43)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "rst_n_fsm_chrono" (rect 0 0 134 16)(font "Arial" ))
+		(text "rst_n_fsm_chrono" (rect 21 43 155 59)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "start_fsm_chrono" (rect 0 0 129 16)(font "Arial" ))
+		(text "start_fsm_chrono" (rect 21 59 150 75)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "AddressMem_offset[5..0]" (rect 0 0 185 16)(font "Arial" ))
+		(text "AddressMem_offset[5..0]" (rect 21 75 206 91)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "overflowFlag" (rect 0 0 94 16)(font "Arial" ))
+		(text "overflowFlag" (rect 21 91 115 107)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 312 32)
+		(output)
+		(text "rd_CHRMem" (rect 0 0 94 16)(font "Arial" ))
+		(text "rd_CHRMem" (rect 212 27 306 43)(font "Arial" ))
+		(line (pt 312 32)(pt 296 32))
+	)
+	(port
+		(pt 312 48)
+		(output)
+		(text "wr_CHRMem" (rect 0 0 95 16)(font "Arial" ))
+		(text "wr_CHRMem" (rect 211 43 306 59)(font "Arial" ))
+		(line (pt 312 48)(pt 296 48))
+	)
+	(port
+		(pt 312 64)
+		(output)
+		(text "en_CHRMem" (rect 0 0 97 16)(font "Arial" ))
+		(text "en_CHRMem" (rect 209 59 306 75)(font "Arial" ))
+		(line (pt 312 64)(pt 296 64))
+	)
+	(port
+		(pt 312 80)
+		(output)
+		(text "clc_CHRMem" (rect 0 0 99 16)(font "Arial" ))
+		(text "clc_CHRMem" (rect 208 75 307 91)(font "Arial" ))
+		(line (pt 312 80)(pt 296 80))
+	)
+	(port
+		(pt 312 96)
+		(output)
+		(text "addressChronoMem[5..0]" (rect 0 0 188 16)(font "Arial" ))
+		(text "addressChronoMem[5..0]" (rect 132 91 320 107)(font "Arial" ))
+		(line (pt 312 96)(pt 296 96)(line_width 3))
+	)
+	(port
+		(pt 312 112)
+		(output)
+		(text "fsm_chronoEND" (rect 0 0 120 16)(font "Arial" ))
+		(text "fsm_chronoEND" (rect 190 107 310 123)(font "Arial" ))
+		(line (pt 312 112)(pt 296 112))
+	)
+	(port
+		(pt 312 128)
+		(output)
+		(text "nRst_chrono" (rect 0 0 95 16)(font "Arial" ))
+		(text "nRst_chrono" (rect 211 123 306 139)(font "Arial" ))
+		(line (pt 312 128)(pt 296 128))
+	)
+	(port
+		(pt 312 144)
+		(output)
+		(text "en_chrono" (rect 0 0 80 16)(font "Arial" ))
+		(text "en_chrono" (rect 224 139 304 155)(font "Arial" ))
+		(line (pt 312 144)(pt 296 144))
+	)
+	(port
+		(pt 312 160)
+		(output)
+		(text "setPrecount_chrono" (rect 0 0 151 16)(font "Arial" ))
+		(text "setPrecount_chrono" (rect 164 155 315 171)(font "Arial" ))
+		(line (pt 312 160)(pt 296 160))
+	)
+	(drawing
+		(rectangle (rect 16 16 296 192))
+	)
+)
+(connector
+	(pt 720 344)
+	(pt 784 344)
+)
+(connector
+	(pt 720 360)
+	(pt 784 360)
+)
+(connector
+	(pt 720 376)
+	(pt 768 376)
+)
+(connector
+	(pt 768 376)
+	(pt 768 384)
+)
+(connector
+	(pt 792 384)
+	(pt 768 384)
+)
+(connector
+	(pt 720 392)
+	(pt 792 392)
+)
+(connector
+	(pt 792 392)
+	(pt 792 408)
+)
+(connector
+	(pt 800 408)
+	(pt 792 408)
+)
+(connector
+	(pt 720 408)
+	(pt 776 408)
+	(bus)
+)
+(connector
+	(pt 776 408)
+	(pt 776 424)
+	(bus)
+)
+(connector
+	(pt 720 424)
+	(pt 760 424)
+)
+(connector
+	(pt 760 424)
+	(pt 760 440)
+)
+(connector
+	(pt 792 440)
+	(pt 760 440)
+)
+(connector
+	(pt 720 440)
+	(pt 752 440)
+)
+(connector
+	(pt 792 488)
+	(pt 752 488)
+)
+(connector
+	(pt 752 440)
+	(pt 752 488)
+)
+(connector
+	(pt 720 456)
+	(pt 744 456)
+)
+(connector
+	(pt 792 520)
+	(pt 744 520)
+)
+(connector
+	(pt 744 456)
+	(pt 744 520)
+)
+(connector
+	(pt 720 472)
+	(pt 728 472)
+)
+(connector
+	(pt 784 552)
+	(pt 728 552)
+)
+(connector
+	(pt 728 472)
+	(pt 728 552)
+)
+(connector
+	(pt 392 344)
+	(pt 408 344)
+)
+(connector
+	(pt 392 360)
+	(pt 408 360)
+)
+(connector
+	(pt 392 376)
+	(pt 408 376)
+)
+(connector
+	(pt 392 408)
+	(pt 408 408)
+)
+(connector
+	(pt 792 424)
+	(pt 776 424)
+	(bus)
+)
+(connector
+	(pt 288 392)
+	(pt 408 392)
+	(bus)
+)

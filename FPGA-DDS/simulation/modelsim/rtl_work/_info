@@ -1,0 +1,177 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/simulation/modelsim
+Egenericchrono
+Z1 w1695132847
+Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 2
+R0
+Z5 8C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/genericChrono.vhd
+Z6 FC:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/genericChrono.vhd
+l0
+L22 1
+V`XC[nJMimd^2WfIoP7?WI0
+!s100 ZSQ^;m<aXB:DJ>K0bL7Aj2
+Z7 OV;C;2020.1;71
+31
+Z8 !s110 1695133523
+!i10b 1
+Z9 !s108 1695133522.000000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/genericChrono.vhd|
+Z11 !s107 C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/genericChrono.vhd|
+!i113 1
+Z12 o-93 -work work
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R2
+R3
+R4
+DEx4 work 13 genericchrono 0 22 `XC[nJMimd^2WfIoP7?WI0
+!i122 2
+l38
+L36 27
+VTXLT9QAH4i70h8U^Id>aA2
+!s100 mAZ[>Gj5AR5d_BQfGE_`a2
+R7
+31
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Egenericchrono_vhd_tst
+Z14 w1695133436
+R3
+R4
+!i122 4
+R0
+Z15 8C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/simulation/modelsim/genericChrono.vht
+Z16 FC:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/simulation/modelsim/genericChrono.vht
+l0
+L31 1
+VTTfbjY9@bWTLW1TY03W;C2
+!s100 9zCIelN@;g26e^nd_[:[L3
+R7
+32
+Z17 !s110 1695133924
+!i10b 1
+Z18 !s108 1695133924.000000
+Z19 !s90 -reportprogress|300|-work|work|C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/simulation/modelsim/genericChrono.vht|
+Z20 !s107 C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/simulation/modelsim/genericChrono.vht|
+!i113 1
+Z21 o-work work
+R13
+Agenericchrono_arch
+R3
+R4
+Z22 DEx4 work 21 genericchrono_vhd_tst 0 22 TTfbjY9@bWTLW1TY03W;C2
+!i122 4
+l54
+Z23 L33 48
+Z24 VSa[`U@`0o_J4Z1JH^6lFY0
+Z25 !s100 <3ZF8TGSkhbAhV:7>ENk=3
+R7
+32
+R17
+!i10b 1
+R18
+R19
+R20
+!i113 1
+R21
+R13
+Epll
+Z26 w1694213194
+R3
+R4
+Z27 DPx12 altera_lnsim 23 altera_lnsim_components 0 22 j2UP9CC=Y_B?SOL73A]P;2
+!i122 0
+R0
+Z28 8C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll_sim/pll.vho
+Z29 FC:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll_sim/pll.vho
+l0
+Z30 L34 1
+VUoW]Td`6BhEOGz>XjkKb13
+!s100 `7>DJ7aZh`fKFSRz3[zHU1
+R7
+32
+Z31 !s110 1695133522
+!i10b 1
+R9
+Z32 !s90 -reportprogress|300|C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll_sim/pll.vho|
+Z33 !s107 C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll_sim/pll.vho|
+!i113 1
+R13
+Artl
+R3
+R4
+R27
+DEx4 work 3 pll 0 22 UoW]Td`6BhEOGz>XjkKb13
+!i122 0
+l53
+L46 264
+V@@NhF2RB>Sam7GgnEdIIz1
+!s100 P4bcKWo9af9_F50M`43fO3
+R7
+32
+R31
+!i10b 1
+R9
+R32
+R33
+!i113 1
+R13
+Epll1
+Z34 w1690307513
+R3
+R4
+R27
+!i122 1
+R0
+Z35 8C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll1_sim/pll1.vho
+Z36 FC:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll1_sim/pll1.vho
+l0
+R30
+VdcXe>jMoKVjo9IR_dR]HM1
+!s100 LIYkEEIJ[EG1B^i8;eoNT1
+R7
+32
+R31
+!i10b 1
+R9
+Z37 !s90 -reportprogress|300|C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll1_sim/pll1.vho|
+Z38 !s107 C:/Users/guill/Desktop/A_DIXITAL/2_DE0_Nano_Soc_CycloneV/0_dixital_SoC/DDS_9854/dds_SoC/pll1_sim/pll1.vho|
+!i113 1
+R13
+Artl
+R3
+R4
+R27
+DEx4 work 4 pll1 0 22 dcXe>jMoKVjo9IR_dR]HM1
+!i122 1
+l51
+L44 262
+Vkdm0WSTz@1;Z9o]6XgR5:2
+!s100 nDB7@5Mmh_L<XiGmkb@Jc1
+R7
+32
+R31
+!i10b 1
+R9
+R37
+R38
+!i113 1
+R13

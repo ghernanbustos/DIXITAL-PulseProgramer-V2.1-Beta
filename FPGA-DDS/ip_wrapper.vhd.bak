@@ -1,0 +1,25 @@
+--------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos, ghernanbustos@gmail.com
+--   FileName:         ip_wrapper.vhdl
+--   Design Software:  Quartus Prime Lite Edition 22.1 Std Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   	Version 2.0 11/2023 
+--	
+--	  Brief: 
+-- 	
+
+--------------------------------------------------------------------------------
+
+entity ip_wrapper is 
+	port(
+		avs_s0_address : in std_logic_vector
+	);
+end entity ip_wrapper;
+
+ARCHITECTURE behavioral OF ip_wrapper IS
+begin
+
+end behavioral

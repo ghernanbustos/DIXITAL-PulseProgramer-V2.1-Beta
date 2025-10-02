@@ -1,0 +1,67 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity chrono_timer is
+    port (
+        clk           : in  std_logic;
+        nRst          : in  std_logic;
+        enable        : in  std_logic;
+        prescale_val  : in  unsigned(15 downto 0); -- sets tick interval
+        pulse_count   : in  unsigned(31 downto 0); -- total ticks before pulse
+        -------------------------------
+        pulse_out     : out std_logic;
+        overflow_out  : out std_logic
+    );
+end chrono_timer;
+
+architecture rtl of chrono_timer is
+    signal prescaler     : unsigned(15 downto 0) := (others => '0');
+    signal count         : unsigned(31 downto 0) := (others => '0');
+    signal tick          : std_logic := '0';
+begin
+
+    -- Prescaler: generates tick after N cycles
+    process(clk, nRst)
+    begin
+        if nRst = '0' then
+            prescaler <= (others => '0');
+            tick <= '0';
+        elsif rising_edge(clk) then
+            if enable = '1' then
+                if prescaler = prescale_val then
+                    prescaler <= (others => '0');
+                    tick <= '1';
+                else
+                    prescaler <= prescaler + 1;
+                    tick <= '0';
+                end if;
+            else
+                tick <= '0';
+            end if;
+        end if;
+    end process;
+
+    -- Main Counter with Pulse Generation
+    process(clk, nRst)
+    begin
+        if nRst = '0' then
+            count <= (others => '0');
+            pulse_out <= '0';
+            overflow_out <= '0';
+        elsif rising_edge(clk) then
+            if enable = '1' and tick = '1' then
+                if count = pulse_count then
+                    overflow_out <= '1';
+                    pulse_out <= '0'; -- pulse ends
+                    count <= (others => '0');
+                else
+                    count <= count + 1;
+                    pulse_out <= '1'; -- during active pulse
+                    overflow_out <= '0';
+                end if;
+            end if;
+        end if;
+    end process;
+
+end rtl;

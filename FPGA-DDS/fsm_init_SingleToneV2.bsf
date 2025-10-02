@@ -1,0 +1,142 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 312 256)
+	(text "fsm_init_SingleToneV2" (rect 5 0 98 12)(font "Arial" ))
+	(text "inst" (rect 8 224 20 236)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_fsm_SingleTone" (rect 0 0 81 12)(font "Arial" ))
+		(text "clk_fsm_SingleTone" (rect 21 27 102 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "rst_n_fsm_SingleTone" (rect 0 0 92 12)(font "Arial" ))
+		(text "rst_n_fsm_SingleTone" (rect 21 43 113 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "start_fsm_SingleTone" (rect 0 0 88 12)(font "Arial" ))
+		(text "start_fsm_SingleTone" (rect 21 59 109 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "AddressMem_offset[5..0]" (rect 0 0 106 12)(font "Arial" ))
+		(text "AddressMem_offset[5..0]" (rect 21 75 127 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 296 32)
+		(output)
+		(text "rd_InitMem" (rect 0 0 46 12)(font "Arial" ))
+		(text "rd_InitMem" (rect 229 27 275 39)(font "Arial" ))
+		(line (pt 296 32)(pt 280 32)(line_width 1))
+	)
+	(port
+		(pt 296 48)
+		(output)
+		(text "wr_InitMem" (rect 0 0 47 12)(font "Arial" ))
+		(text "wr_InitMem" (rect 228 43 275 55)(font "Arial" ))
+		(line (pt 296 48)(pt 280 48)(line_width 1))
+	)
+	(port
+		(pt 296 64)
+		(output)
+		(text "en_InitMem" (rect 0 0 47 12)(font "Arial" ))
+		(text "en_InitMem" (rect 228 59 275 71)(font "Arial" ))
+		(line (pt 296 64)(pt 280 64)(line_width 1))
+	)
+	(port
+		(pt 296 80)
+		(output)
+		(text "clc_InitMem" (rect 0 0 48 12)(font "Arial" ))
+		(text "clc_InitMem" (rect 227 75 275 87)(font "Arial" ))
+		(line (pt 296 80)(pt 280 80)(line_width 1))
+	)
+	(port
+		(pt 296 96)
+		(output)
+		(text "AddressMemInit[5..0]" (rect 0 0 87 12)(font "Arial" ))
+		(text "AddressMemInit[5..0]" (rect 188 91 275 103)(font "Arial" ))
+		(line (pt 296 96)(pt 280 96)(line_width 3))
+	)
+	(port
+		(pt 296 112)
+		(output)
+		(text "fsm_initEND" (rect 0 0 53 12)(font "Arial" ))
+		(text "fsm_initEND" (rect 222 107 275 119)(font "Arial" ))
+		(line (pt 296 112)(pt 280 112)(line_width 1))
+	)
+	(port
+		(pt 296 128)
+		(output)
+		(text "masterRst" (rect 0 0 43 12)(font "Arial" ))
+		(text "masterRst" (rect 232 123 275 135)(font "Arial" ))
+		(line (pt 296 128)(pt 280 128)(line_width 1))
+	)
+	(port
+		(pt 296 144)
+		(output)
+		(text "rd_n" (rect 0 0 18 12)(font "Arial" ))
+		(text "rd_n" (rect 257 139 275 151)(font "Arial" ))
+		(line (pt 296 144)(pt 280 144)(line_width 1))
+	)
+	(port
+		(pt 296 160)
+		(output)
+		(text "wd_n" (rect 0 0 21 12)(font "Arial" ))
+		(text "wd_n" (rect 254 155 275 167)(font "Arial" ))
+		(line (pt 296 160)(pt 280 160)(line_width 1))
+	)
+	(port
+		(pt 296 176)
+		(output)
+		(text "FSK_BPSK_HOLD" (rect 0 0 82 12)(font "Arial" ))
+		(text "FSK_BPSK_HOLD" (rect 193 171 275 183)(font "Arial" ))
+		(line (pt 296 176)(pt 280 176)(line_width 1))
+	)
+	(port
+		(pt 296 192)
+		(output)
+		(text "I_O_update" (rect 0 0 47 12)(font "Arial" ))
+		(text "I_O_update" (rect 228 187 275 199)(font "Arial" ))
+		(line (pt 296 192)(pt 280 192)(line_width 1))
+	)
+	(port
+		(pt 296 208)
+		(output)
+		(text "debugFlag" (rect 0 0 40 12)(font "Arial" ))
+		(text "debugFlag" (rect 235 203 275 215)(font "Arial" ))
+		(line (pt 296 208)(pt 280 208)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 280 224)(line_width 1))
+	)
+)

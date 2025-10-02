@@ -1,0 +1,113 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- Ejemplo:
+--quartushelp.altera.com/15.0/mergedProjects/reference/glossary/def_mif.htm
+-- single-line comment
+WIDTH=16;
+DEPTH=64;
+ADDRESS_RADIX=UNS;				
+DATA_RADIX=BIN;
+CONTENT 
+BEGIN	
+
+-- Data AddressPWT[5..0] + PWT[7..0]
+-- Values 0 - 90 grades
+-- phase word
+--		Address   :   
+		0   :   0000000000000000; -- MSB
+		1   :   0000000100000000; -- LSB
+		2   :   0000000000010000; -- MSB
+		3   :   0000000100000000; -- LSB
+		4   :   0000000000100000; -- MSB
+		5   :   0000000100000000; -- LSB
+		6   :   0000000000000000; -- MSB
+		7   :   0000000100000000; -- LSB
+		8   :   0000000000010000; -- MSB
+		9   :   0000000100000000; -- LSB
+		10   :   0000000000100000; -- MSB
+		11   :   0000000100000000; -- LSB
+		12   :   0000000000000000; -- MSB
+		13   :   0000000100000000; -- LSB
+		14   :   0000000000010000; -- MSB
+		15   :   0000000100000000; -- LSB
+		16   :   0000000000100000; -- MSB
+		17   :   0000000100000000; -- LSB
+		18   :   0000000000000000; -- MSB
+		19   :   0000000100000000; -- LSB
+		20   :   0000000000010000; -- MSB
+		21   :   0000000100000000; -- LSB
+		22   :   0000000000100000; -- MSB
+		23   :   0000000100000000; -- LSB
+		24   :   0000000000000000; -- MSB
+		25   :   0000000100000000; -- LSB
+		26   :   0000000000010000; -- MSB
+		27   :   0000000100000000; -- LSB
+		28   :   0000000000100000; -- MSB
+		29   :   0000000100000000; -- LSB
+		30   :   0000000000000000; -- MSB
+		31   :   0000000100000000; -- LSB
+		32   :   0000000000010000; -- MSB
+		33   :   0000000100000000; -- LSB
+		34   :   0000000000100000; -- MSB
+		35   :   0000000100000000; -- LSB
+		36   :   0000000000000000; -- MSB
+		37   :   0000000100000000; -- LSB
+		38   :   0000000000010000; -- MSB
+		39   :   0000000100000000; -- LSB
+		40   :   0000000000100000; -- MSB
+		41   :   0000000100000000; -- LSB
+		42   :   0000000000000000; -- MSB
+		43   :   0000000100000000; -- LSB
+		44   :   0000000000010000; -- MSB
+		45   :   0000000100000000; -- LSB
+		46   :   0000000000100000; -- MSB
+		47   :   0000000100000000; -- LSB
+		48   :   0000000000000000; -- MSB
+		49   :   0000000100000000; -- LSB
+		50   :   0000000000010000; -- MSB
+		51   :   0000000100000000; -- LSB
+		52   :   0000000000100000; -- MSB
+		53   :   0000000100000000; -- LSB
+		54   :   0000000000000000; -- MSB
+		55   :   0000000100000000; -- LSB
+		56   :   0000000000010000; -- MSB
+		57   :   0000000100000000; -- LSB
+		58   :   0000000000100000; -- MSB
+		59   :   0000000100000000; -- LSB
+		60   :   0000000000000000; -- MSB
+		61   :   0000000100000000; -- LSB
+		62   :   0000000000010000; -- MSB
+		63   :   0000000100000000; -- LSB   
+
+END;
+
+-- 0 grad
+--		0   :   00000000 00000000; -- MSB
+--		1   :   00000001 00000000; -- LSB
+-- 90 grad - 4096=  00010000 00000000
+--		2   :   00000000 00010000; -- MSB
+--		3   :   00000001 00000000; -- LSB
+-- 180 grad - 8192= 00100000 00000000
+--		2   :   00000000 00100000; -- MSB
+--		3   :   00000001 00000000; -- LSB
+
+
+
+
+
+
+
+
+

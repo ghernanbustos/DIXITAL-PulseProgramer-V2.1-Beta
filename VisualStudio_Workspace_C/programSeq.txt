@@ -1,0 +1,34 @@
+/*
+Software to be loaded. Preloaded data first
+second pulse program.mempos=[0],operation=[0],pwd_dds=[0x00],clk_dds=[0x4F],mode_dds=[0x00],osk_dds=[0x60];
+*/
+
+BEGIN 
+init:
+mempos=[0],operation=[0],pwd_dds=[0x00],clk_dds=[0x4F],mode_dds=[0x00],osk_dds=[0x60];
+ftw:
+mempos=[0],operation=[0],ftw_word=[60000000];
+mempos=[1],operation=[0],ftw_word=[90000000];
+mempos=[2],operation=[0],ftw_word=[1000000];
+ptw:
+mempos=[0],operation=[0],ptw_word=[180];
+mempos=[1],operation=[0],ptw_word=[90];
+chrono1:
+mempos=[0],operation=[0],chron_word=[0.001];
+mempos=[1],operation=[0],chron_word=[0.0001];
+mempos=[2],operation=[0],chron_word=[0.00001];
+chrono2:
+mempos=[0],operation=[0],chron_word=[0.001];
+mempos=[1],operation=[0],chron_word=[0.0001];
+mempos=[2],operation=[0],chron_word=[0.00001];
+sincWindow:
+mempos=[0],operation=[0],sincWindow_word=[0.001];
+mempos=[1],operation=[0],sincWindow_word=[0.0001];
+mempos=[2],operation=[0],sincWindow_word=[0.00001];	
+program:
+mempos=[0],operation=[0],pgr_word=[0x0000FFFF];
+mempos=[1],operation=[0],pgr_word=[0x0000FFFF];
+mempos=[2],operation=[0],pgr_word=[0x0000FFFF];
+mempos=[3],operation=[0],pgr_word=[0x0000FFFF];
+mempos=[4],operation=[0],pgr_word=[0xFFFFFFFF];
+END;

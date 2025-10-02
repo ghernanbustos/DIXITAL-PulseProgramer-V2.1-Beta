@@ -1,0 +1,26 @@
+# system info hps_dds_wrapper on 2024.05.02.16:30:28
+system_info:
+name,value
+DEVICE,5CSEMA4U23C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1714678217
+#
+#
+# Files generated for hps_dds_wrapper on 2024.05.02.16:30:28
+files:
+filepath,kind,attributes,module,is_top
+simulation/hps_dds_wrapper.vhd,VHDL,,hps_dds_wrapper,true
+simulation/submodules/hps_dds_wrapper_hps_0.v,VERILOG,,hps_dds_wrapper_hps_0,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+hps_dds_wrapper.hps_0,hps_dds_wrapper_hps_0
+hps_dds_wrapper.hps_0.fpga_interfaces,hps_dds_wrapper_hps_0_fpga_interfaces
+hps_dds_wrapper.hps_0.hps_io,hps_dds_wrapper_hps_0_hps_io
+hps_dds_wrapper.wrapper_address_0,hps_dds_wrapper_wrapper_address_0
+hps_dds_wrapper.wrapper_ctrl_0,hps_dds_wrapper_wrapper_ctrl_0
+hps_dds_wrapper.wrapper_data_0,hps_dds_wrapper_wrapper_data_0
+hps_dds_wrapper.mm_interconnect_0,hps_dds_wrapper_mm_interconnect_0
+hps_dds_wrapper.rst_controller,altera_reset_controller
+hps_dds_wrapper.rst_controller_001,altera_reset_controller

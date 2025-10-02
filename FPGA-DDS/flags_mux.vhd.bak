@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos
+--   FileName:         mux_fir_resol.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus Prime Lite Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   Version 1.0 09/2024 Guillermo H. Bustos
+--
+--	 Set FIR output bit resolution
+--			  
+--------------------------------------------------------------------------------
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+----------------------------------------------
+ENTITY flags_mux IS
+	PORT (	
+			-- wr_rd_sel
+			sel_data	: IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+			-- Data In
+			data_A	: IN STD_LOGIC;	
+			data_B	: IN STD_LOGIC;
+			data_C	: IN STD_LOGIC;	
+			data_D	: IN STD_LOGIC;
+	
+			-- OUT PORTS
+			data_Out	: OUT STD_LOGIC
+			);			
+END flags_mux;
+
+ARCHITECTURE mux3 OF flags_mux IS
+BEGIN
+    PROCESS (sel_data)
+    BEGIN
+        CASE sel_data IS
+            WHEN "00" =>
+                data_Out <= data_A;
+
+            WHEN "01" =>
+                data_Out <= data_B;
+
+            WHEN "10" =>
+                data_Out <= data_C;
+
+            WHEN "11" =>
+                data_Out <= data_D;
+
+            WHEN OTHERS =>
+                data_Out <= (others => '0');
+        END CASE;
+    END PROCESS;
+	
+ END mux3;

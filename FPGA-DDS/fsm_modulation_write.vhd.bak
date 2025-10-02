@@ -1,0 +1,152 @@
+--------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos
+--   FileName:         fsm_modulation_write.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus Prime Lite Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   Version 1.0 03/2024 Guillermo H. Bustos
+--
+--	  Brief: 
+--		
+--------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY fsm_modulation_write IS
+  port (
+		clk_fsm_chrono    	: 	IN  std_logic; -- clk_fsm_chrono 50Mhz
+		rst_n_fsm_chrono  	: 	IN  std_logic;
+		start_fsm_chrono		: 	IN  std_logic; -- set on with wrapper CtrlRegister
+		-- From Chrono
+		overflowFlag			: 	IN  std_logic; -- chrono overflow flag.
+		-- FSM RAM control
+		rd_PTWMem				: 	OUT std_logic; 
+		wr_PTWMem 				: 	OUT std_logic; 
+		en_PTWMem 				: 	OUT std_logic; 
+		clc_PTWMem				: 	OUT std_logic;
+		addressChronoMem		:	OUT std_logic_vector(5 downto 0); 
+		-- fsm end
+		fsm_chronoEND			:	OUT std_logic;
+		-- Chrono control
+		nRst_chrono 			: 	OUT  std_logic;
+		en_chrono   			: 	OUT  std_logic;
+		setPrecount_chrono	: 	OUT  std_logic
+
+  );
+END ENTITY fsm_modulation_write;
+------------------------------------------------
+
+
+ARCHITECTURE Behavioral OF fsm_modulation_write IS
+  -- Signals declarations
+  TYPE state_type IS (state_reset, state_0, state_1,state_2,state_3);
+  SIGNAL state : state_type; 														 
+  
+BEGIN
+state_transition: PROCESS (clk_fsm_chrono, rst_n_fsm_chrono, start_fsm_chrono) 	 
+	BEGIN
+		IF (rst_n_fsm_chrono = '0') THEN   							--  
+			state <= state_reset;			
+		ELSIF rising_edge(clk_fsm_chrono ) THEN		
+			CASE state IS
+				WHEN state_reset =>
+					IF (start_fsm_chrono = '1') THEN 
+						state <= state_0;	
+					ELSE 
+						state <= state_reset; 
+					END IF;
+				WHEN state_0 =>		-- Enble mem			 
+					state <= state_1; 	
+					addressChronoMem <= "000000";	
+				WHEN state_1 =>		-- Enble mem			 
+					state <= state_2;
+					addressChronoMem <= "000000";
+				WHEN state_2 =>	-- keep counting until overflow flag is on	
+					IF (overflowFlag = '1') THEN
+						state <= state_3;
+					ELSE 
+						state <= state_2; -- remains counting
+					end if;
+				WHEN state_3 =>					-- 
+					state <= state_3;					
+			END CASE;
+		END IF;
+	END PROCESS state_transition;
+  
+  
+Output_logic: PROCESS (state)
+	BEGIN							
+ 		CASE state IS
+			WHEN state_reset => -- Initial state/reset state
+				-- FSM RAM control
+				rd_PTWMem				<= '0';
+				wr_PTWMem 				<= '0';
+				en_PTWMem 				<= '0';
+				clc_PTWMem				<= '0';
+				-- chrono
+				nRst_chrono 			<= '1'; --rst off
+				en_chrono   			<= '0';
+				setPrecount_chrono	<= '0';
+				-- endflag
+				fsm_chronoEND			<= '0';
+
+			WHEN state_0 => -- RAM rd ON
+				rd_PTWMem				<= '1';
+				wr_PTWMem 				<= '0';
+				en_PTWMem 				<= '1';
+				clc_PTWMem				<= '0';
+				-- chrono
+				nRst_chrono 			<= '1'; 
+				en_chrono   			<= '0';
+				setPrecount_chrono	<= '0';
+				-- endflag
+				fsm_chronoEND			<= '0';
+
+			WHEN state_1 => -- Set pre Load 
+				-- ram control
+				rd_PTWMem				<= '1';
+				wr_PTWMem 				<= '0';
+				en_PTWMem 				<= '1';
+				clc_PTWMem				<= '0';
+				-- chrono
+				nRst_chrono 			<= '1'; 
+				en_chrono   			<= '1';
+				setPrecount_chrono	<= '1';-- preload on once
+				-- endflag
+				fsm_chronoEND			<= '0';				
+
+			WHEN state_2 => -- counting
+				-- ram control
+				rd_PTWMem				<= '0';
+				wr_PTWMem 				<= '0';
+				en_PTWMem 				<= '0';
+				clc_PTWMem				<= '0';
+				-- chrono
+				nRst_chrono 			<= '1'; 
+				en_chrono   			<= '1';
+				setPrecount_chrono	<= '0'; -- preload off
+				-- endflag
+				fsm_chronoEND			<= '0';
+				
+			WHEN state_3 => -- Chrono remains with overflow state until external reset
+				-- ram control
+				rd_PTWMem				<= '0';
+				wr_PTWMem 				<= '0';
+				en_PTWMem 				<= '0';
+				clc_PTWMem				<= '0';
+				-- chrono
+				nRst_chrono 			<= '1'; --rst off
+				en_chrono   			<= '1';
+				setPrecount_chrono	<= '0';
+				-- endflag
+				fsm_chronoEND			<= '1'; --fsm end data loaded to timer
+
+		END CASE;
+	END PROCESS Output_logic; -- Outputs are updated at the end of the process
+
+END ARCHITECTURE Behavioral;

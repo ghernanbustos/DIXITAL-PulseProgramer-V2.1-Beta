@@ -1,0 +1,20 @@
+Fitter Status : Successful - Fri Sep  5 19:34:39 2025
+Quartus Prime Version : 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Revision Name : ddsAD9854
+Top-level Entity Name : top_level_block
+Family : Cyclone V
+Device : 5CSEMA4U23C6
+Timing Models : Final
+Logic utilization (in ALMs) : 1,238 / 15,880 ( 8 % )
+Total registers : 1695
+Total pins : 155 / 314 ( 49 % )
+Total virtual pins : 0
+Total block memory bits : 60,416 / 2,764,800 ( 2 % )
+Total RAM Blocks : 13 / 270 ( 5 % )
+Total DSP Blocks : 0 / 84 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1 / 5 ( 20 % )
+Total DLLs : 1 / 4 ( 25 % )

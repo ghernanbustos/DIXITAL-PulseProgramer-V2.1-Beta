@@ -1,0 +1,24 @@
+Info: Start Nativelink Simulation process
+executing command line: ip-make-simscript --nativelink-mode --output-directory=ddsAD9854_iputf_input --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/pll.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/pll1.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip/fir_sinc.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip/fir_sinc_sim.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_2/fir_2.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_3/fir_3.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_4/fir_4.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_5/fir_5.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_6/fir_6.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_7/fir_7.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_8/fir_8.spd --spd=C:/Users/guill/OneDrive/Escritorio/DIXITAL_NMR_PulseSeq/FPGA-DDS/ip_core/fir_ip_bank/fir_ip_bank.spd 
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  RTL
+Family                :  cyclonev
+Quartus root          :  c:/intelfpga_lite/22.1std/quartus/bin64/
+Quartus sim root      :  c:/intelfpga_lite/22.1std/quartus/eda/sim_lib
+Simulation Tool       :  modelsim
+Simulation Language   :  vhdl
+Version               :  93
+Simulation Mode       :  GUI
+Sim Output File       :  
+Sim SDF file          :  
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim software
+Sourced NativeLink script c:/intelfpga_lite/22.1std/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File ddsAD9854_run_msim_rtl_vhdl.do already exists - backing up current file as ddsAD9854_run_msim_rtl_vhdl.do.bak6
+Info: Spawning ModelSim Simulation software 
+Info: NativeLink simulation flow was successful

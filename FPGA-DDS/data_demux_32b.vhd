@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos
+--   FileName:         data_demux_16b.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus Prime Lite Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   Version 1.0 03/2023 Guillermo H. Bustos
+--
+-- 		For fully combinational behaviour be aware to list all inputs and sel singal in process sensitive
+--				list.	  
+--------------------------------------------------------------------------------
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+----------------------------------------------
+ENTITY data_demux_32b IS
+	PORT (	
+			-- wr_rd_sel
+			sel_data	: IN  STD_LOGIC := '0';
+			-- Data In
+			data_in	: IN STD_LOGIC_VECTOR(31 DOWNTO 0);	
+	
+			-- OUT PORTS
+			data_Out1 	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			data_Out2	: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+			);			
+END data_demux_32b;
+
+ARCHITECTURE mux3 OF data_demux_32b IS
+BEGIN
+    PROCESS (sel_data,data_in)
+    BEGIN
+        CASE sel_data IS
+            WHEN '0' =>
+                data_Out1 <= data_in;
+					 data_Out2 <= (others => '0');
+            WHEN '1' =>
+					 data_Out1 <= (others => '0');
+                data_Out2 <= data_in;
+            WHEN OTHERS =>
+                data_Out1 <= (others => '0');
+					 data_Out2 <= (others => '0');
+        END CASE;
+    END PROCESS;
+	
+ END mux3;

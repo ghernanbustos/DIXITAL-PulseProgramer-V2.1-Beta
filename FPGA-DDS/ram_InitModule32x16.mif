@@ -1,0 +1,63 @@
+-- Copyright (C) 1991-2013 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- Ejemplo:
+--quartushelp.altera.com/15.0/mergedProjects/reference/glossary/def_mif.htm
+-- single-line comment
+WIDTH=16;
+DEPTH=32;
+ADDRESS_RADIX=UNS;				
+DATA_RADIX=BIN;
+CONTENT 
+BEGIN	
+	
+--	Address   :   
+		0   :   0001110100000000; --POWER DOWN
+		1   :   0001111001001111; --PLL WORD x10
+		2   :   0001111100000000; --FUNC MODE
+		3   :   0010000001100000; --Inv Sinc + OSK - disable Inv Sinc and osk int
+		4   :   0010000100001111; -- Amplitude register I
+		5   :   0010001011111111;
+		6   :   0010001100001111; -- Amplitude register Q
+		7   :   0010010011111111;	
+		8   :   0000000000000000;
+		9   :   0000000000000000;
+		10  :   0000000000000000;
+		11  :   0000000000000000;
+		12  :   0000000000000000;
+		13  :   0000000000000000;
+		14  :   0000000000000000;
+		15  :   0000000000000000;
+		16  :   0000000000000000;
+		17  :   0000000000000000;
+		18  :   0000000000000000;
+		19  :   0000000000000000;
+		20  :   0000000000000000;
+		21  :   0000000000000000;
+		22  :   0000000000000000;
+		23  :   0000000000000000;
+		24  :   0000000000000000;
+		25  :   0000000000000000;
+		26  :   0000000000000000;
+		27  :   0000000000000000;
+		28  :   0000000000000000;
+		29  :   0000000000000000;
+		30  :   0000000000000000;
+		30  :   0000000000000000;
+		31  :   0000000000000000;
+
+ END;
+
+
+

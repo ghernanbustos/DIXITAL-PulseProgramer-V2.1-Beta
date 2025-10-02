@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos
+--   FileName:         mux_nco.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus Prime Lite Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   Version 1.0 03/2023 Guillermo H. Bustos
+--
+-- 		For fully combinational behaviour be aware to list all inputs and sel singal in process sensitive
+--				list.	  
+--------------------------------------------------------------------------------
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+----------------------------------------------
+ENTITY mux_nco IS
+	PORT (	
+			-- wr_rd_sel
+			sel_data	: IN  STD_LOGIC := '0';
+			-- OUT PORTS
+			data_Out1	: OUT STD_LOGIC
+			);			
+END mux_nco;
+
+ARCHITECTURE mux4 OF mux_nco IS
+BEGIN
+    PROCESS (sel_data)
+    BEGIN
+        CASE sel_data IS
+            WHEN '0' =>
+                data_Out1 <= '0';
+            WHEN '1' =>
+					 data_Out1 <= '1';
+            WHEN OTHERS =>
+                data_Out1 <= (others => '0');
+					 data_Out2 <= (others => '0');
+        END CASE;
+    END PROCESS;
+	
+ END mux4;

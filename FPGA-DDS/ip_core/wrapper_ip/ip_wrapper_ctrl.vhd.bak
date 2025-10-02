@@ -1,0 +1,99 @@
+--------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos, ghernanbustos@gmail.com
+--   FileName:         ip_wrapper.vhdl
+--   Design Software:  Quartus Prime Lite Edition 22.1 Std Edition
+--	  Company:    Universidad Nacional de Cordoba - FAMAF - LARTE - IFEG
+--   Project: 			  Dixital 
+--	  Company: 			  LARTE
+--   Version History
+--   	Version 03/2024
+--	
+--	  Brief: 
+--		
+--		ip wrapper to mux different modules, every module has its own control register
+
+--------------------------------------------------------------------------------
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+entity ip_wrapper_ctrl is 
+	port(
+		clk			: in 	std_logic 						 		:= '0';
+		reset_n			: in 	std_logic 						 		:= '0';
+		-------- Avalon Bus 
+		avs_s0_address 		: in  std_logic_vector(3 downto 0) := (others => '0'); -- Op Code
+		avs_s0_read		: in  std_logic 						 		:= '0';
+		avs_s0_readdata		: out std_logic_vector(15 downto 0);
+		avs_s0_write		: in  std_logic 			:= '0';
+		avs_s0_writedata 	: in  std_logic_vector(15 downto 0) := (others => '0');
+		-------- CONDUITS -
+		endFsm_ctrl_flag	: in  std_logic_vector(7 downto 0) := (others => '0');
+		debug_ctrl_in		: in std_logic_vector(7 downto 0) := (others => '0'); -- extra input
+		--	
+		rd_ram_ctrl		: out std_logic_vector(7 downto 0) := (others => '0');
+		wr_ram_ctrl		: out std_logic_vector(7 downto 0) := (others => '0');
+		startFsm_ctrl		: out std_logic_vector(7 downto 0) := (others => '0');
+		en_ram_ctrl		: out std_logic_vector(7 downto 0) := (others => '0');
+		clr_ram_ctrl		: out std_logic_vector(7 downto 0) := (others => '0');
+		debug_ctrl_out		: out std_logic_vector(7 downto 0) := (others => '0') -- extra output]
+	);
+end ip_wrapper_ctrl;
+
+ARCHITECTURE behavioral OF ip_wrapper_ctrl IS
+signal REG_0 : STD_LOGIC_VECTOR(15 downto 0) := "1010010110100001"; -- Testing use only
+signal REG_1 : STD_LOGIC_VECTOR(15 downto 0) := "1010010110100010"; -- Testing use only
+signal REG_2 : STD_LOGIC_VECTOR(15 downto 0) := "1010010110100011"; -- Testing use only
+
+begin
+wrapper_data:	process(clk, reset_n)
+	begin
+	if (reset_n = '0') then
+		rd_ram_ctrl	<= (others => '0'); 
+		wr_ram_ctrl	<= (others => '0');
+		startFsm_ctrl	<= (others => '0');
+		en_ram_ctrl	<= (others => '0');
+		clr_ram_ctrl	<= (others => '0');
+		debug_ctrl_out 	<= (others => '0');
+		avs_s0_readdata <= (others => '0');
+	elsif (rising_edge(clk)) then -- edge sensitive
+		if (avs_s0_read = '1') then -- read flags Depending on '1' bit position is the ram port set
+			case avs_s0_address is
+				when "0000" => 
+					avs_s0_readdata(0) <= endFsm_ctrl_flag; -- from fsm init
+				when "0001" => 
+					avs_s0_readdata(1) <= debug_ctrl_in; -- from fsm ftw
+				when "0010" => 
+					avs_s0_readdata(2) <= REG_0; -- from fsm ptw
+				when "0011" => 
+					avs_s0_readdata(3) <= REG_1; -- from fsm chrono
+				when "0100" => 
+					avs_s0_readdata(4) <= REG_2; -- from sinc
+				when others => 
+					avs_s0_readdata <= (others => '0'); 
+			end case;
+		elsif (avs_s0_write = '1') then 
+			case avs_s0_address is -- Depending on '1' bit position is the ram port set
+				when "0000" => 								-- 0x0000
+					rd_ram_ctrl      <= avs_s0_writedata(7 downto 0);
+				when "0001" => 								-- 0x0001
+					wr_ram_ctrl 	 <= avs_s0_writedata(7 downto 0); 
+				when "0010" => 								-- 0x0002
+					startFsm_ctrl 	 <= avs_s0_writedata(7 downto 0);
+				when "0011" => 								-- 0x0003
+					en_ram_ctrl   	 <= avs_s0_writedata(7 downto 0);
+				when "0100" => 								-- 0x0004
+					clr_ram_ctrl  	 <= avs_s0_writedata(7 downto 0);
+				when "0101" =>
+					debug_ctrl_out   <= avs_s0_writedata(7 downto 0);	
+				when others =>
+					rd_ram_ctrl	<= (others => '0'); 
+					wr_ram_ctrl	<= (others => '0');
+					startFsm_ctrl	<= (others => '0');
+					en_ram_ctrl	<= (others => '0');
+					clr_ram_ctrl	<= (others => '0');
+					debug_ctrl_out 	<= (others => '0');
+			end case;
+		end if;
+	end if;
+	end process wrapper_data;
+end behavioral;

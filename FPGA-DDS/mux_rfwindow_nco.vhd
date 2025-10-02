@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos
+--   FileName:         mux_rfwindow_nco.vhd
+--   Dependencies:     none
+--   Design Software:  Quartus Prime Lite Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   Version 1.0 09/2025 Guillermo H. Bustos
+--
+-- 		For fully combinational behaviour be aware to list all inputs and sel singal in process sensitive
+--				list.	  
+--------------------------------------------------------------------------------
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+----------------------------------------------
+ENTITY mux_rfwindow_nco IS
+	PORT (	
+			-- 
+			sel_data		: IN  STD_LOGIC;
+			rf_window	: IN  STD_LOGIC;
+			-- 
+			data_Out1	: OUT STD_LOGIC
+			);			
+END mux_rfwindow_nco;
+
+ARCHITECTURE mux5 OF mux_rfwindow_nco IS
+BEGIN
+    PROCESS (sel_data,rf_window)
+    BEGIN
+        CASE sel_data IS
+            WHEN '0' =>
+                data_Out1 <= '0';
+            WHEN '1' =>
+					 data_Out1 <= rf_window;
+            WHEN OTHERS =>
+                data_Out1 <= '0';
+        END CASE;
+    END PROCESS;
+
+--
+-- WITH sel_data SELECT
+--		data_Out1 <= 	'0' 		 WHEN '0',
+--							rf_window WHEN '1',
+--							'0' WHEN OTHERS;
+		
+ END mux5;
+ 
+

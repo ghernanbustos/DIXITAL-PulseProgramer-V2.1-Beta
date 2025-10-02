@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="fir_sinc_sim_sim/dspba_library_package.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/dspba_library.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/auk_dspip_math_pkg_hpfir.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/auk_dspip_lib_pkg_hpfir.vhd" type="VHDL" />
+ <file
+   path="fir_sinc_sim_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd"
+   type="VHDL" />
+ <file
+   path="fir_sinc_sim_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd"
+   type="VHDL" />
+ <file
+   path="fir_sinc_sim_sim/auk_dspip_avalon_streaming_source_hpfir.vhd"
+   type="VHDL" />
+ <file path="fir_sinc_sim_sim/auk_dspip_roundsat_hpfir.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/altera_avalon_sc_fifo.v" type="VERILOG" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_rtl_core.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_ast.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_nativelink.tcl" type="OTHER" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_msim.tcl" type="OTHER" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_tb.vhd" type="VHDL" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_mlab.m" type="OTHER" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_model.m" type="OTHER" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_coef_int.txt" type="OTHER" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_input.txt" type="OTHER" />
+ <file path="fir_sinc_sim_sim/fir_sinc_sim_param.txt" type="OTHER" />
+ <topLevel name="fir_sinc_sim" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

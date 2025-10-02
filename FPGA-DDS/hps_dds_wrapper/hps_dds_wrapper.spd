@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/hps_dds_wrapper_hps_0.v"
+   type="VERILOG"
+   library="hps_0" />
+ <file path="simulation/hps_dds_wrapper.vhd" type="VHDL" />
+ <topLevel name="hps_dds_wrapper" />
+ <deviceFamily name="cyclonev" />
+ <modelMap
+   controllerPath="hps_dds_wrapper.hps_0"
+   modelPath="hps_dds_wrapper.hps_0" />
+ <modelMap
+   controllerPath="hps_dds_wrapper.hps_0.fpga_interfaces"
+   modelPath="hps_dds_wrapper.hps_0.fpga_interfaces" />
+ <modelMap
+   controllerPath="hps_dds_wrapper.hps_0.hps_io"
+   modelPath="hps_dds_wrapper.hps_0.hps_io" />
+</simPackage>

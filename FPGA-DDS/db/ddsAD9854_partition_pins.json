@@ -1,0 +1,165 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "SquarePulseOut",
+					"strict" : false
+				},
+				{
+					"name" : "ud_ptw_trigger",
+					"strict" : false
+				},
+				{
+					"name" : "chrono22Output",
+					"strict" : false
+				},
+				{
+					"name" : "led0",
+					"strict" : false
+				},
+				{
+					"name" : "led1",
+					"strict" : false
+				},
+				{
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "led3",
+					"strict" : false
+				},
+				{
+					"name" : "led4",
+					"strict" : false
+				},
+				{
+					"name" : "led5",
+					"strict" : false
+				},
+				{
+					"name" : "led6",
+					"strict" : false
+				},
+				{
+					"name" : "led7",
+					"strict" : false
+				},
+				{
+					"name" : "SDO",
+					"strict" : false
+				},
+				{
+					"name" : "adc_conv_end_flag",
+					"strict" : false
+				},
+				{
+					"name" : "conv_init_pulse",
+					"strict" : false
+				},
+				{
+					"name" : "adc_chip_clk_40",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[20]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[19]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[18]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[17]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[16]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[15]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ddsDataOut[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SDI",
+					"strict" : false
+				},
+				{
+					"name" : "adc_rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "clock_50",
+					"strict" : false
+				},
+				{
+					"name" : "reset_n",
+					"strict" : false
+				},
+				{
+					"name" : "init_adc_conv",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

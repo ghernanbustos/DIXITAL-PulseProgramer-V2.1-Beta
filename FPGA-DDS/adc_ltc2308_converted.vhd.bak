@@ -1,0 +1,179 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity adc_ltc2308_converted is
+    port (
+        clk              : in  std_logic;  -- max 40 MHz
+
+        -- start measure
+        measure_start    : in  std_logic;  
+        measure_ch       : in  std_logic_vector(2 downto 0);
+        measure_done     : out std_logic;
+        measure_dataread : out std_logic_vector(11 downto 0);
+
+        -- adc interface
+        ADC_CONVST       : out std_logic;
+        ADC_SCK          : out std_logic;
+        ADC_SDI          : out std_logic;
+        ADC_SDO          : in  std_logic
+    );
+end entity;
+
+architecture rtl of adc_ltc2308_converted is
+
+    -- constants (like Verilog `define)
+    constant DATA_BITS_NUM : integer := 12;
+    constant CMD_BITS_NUM  : integer := 6;
+    constant CH_NUM        : integer := 8;
+
+    constant tWHCONV       : integer := 3;
+    constant tCONV         : integer := 64; -- 1.6us max @40MHz
+    constant tHCONVST      : integer := 320;
+
+    constant tCONVST_HIGH_START : integer := 0;
+    constant tCONVST_HIGH_END   : integer := tCONVST_HIGH_START + tWHCONV;
+
+    constant tCLK_START    : integer := tCONVST_HIGH_START + tCONV;
+    constant tCLK_END      : integer := tCLK_START + DATA_BITS_NUM;
+
+    constant tCONFIG_START : integer := tCONVST_HIGH_END;
+    constant tCONFIG_END   : integer := tCLK_START + CMD_BITS_NUM - 1;
+
+    constant tDONE         : integer := tCLK_END + tHCONVST;
+
+    constant UNI_MODE      : std_logic := '1';
+    constant SLP_MODE      : std_logic := '0';
+
+    -- signals
+    signal pre_measure_start : std_logic := '0';
+    signal reset_n           : std_logic := '1';
+
+    signal tick              : unsigned(15 downto 0) := (others => '0');
+
+    signal clk_enable        : std_logic := '0';
+    signal read_data         : std_logic_vector(DATA_BITS_NUM-1 downto 0) := (others => '0');
+    signal write_pos         : integer range 0 to DATA_BITS_NUM-1 := DATA_BITS_NUM-1;
+
+    signal measure_done_r    : std_logic := '0';
+
+    signal config_cmd        : std_logic_vector(CMD_BITS_NUM-1 downto 0) := (others => '0');
+    signal sdi_index         : integer range 0 to CMD_BITS_NUM-1 := 0;
+
+    signal ADC_SDI_r         : std_logic := '0';
+
+begin
+    measure_done <= measure_done_r;
+    measure_dataread <= read_data;
+    ADC_SDI <= ADC_SDI_r;
+
+    --------------------------------------------
+    -- trigger generation
+    process(clk)
+    begin
+        if rising_edge(clk) then
+            pre_measure_start <= measure_start;
+        end if;
+    end process;
+
+    reset_n <= '0' when (pre_measure_start = '0' and measure_start = '1') else '1';
+
+    --------------------------------------------
+    -- tick counter
+    process(clk, reset_n)
+    begin
+        if reset_n = '0' then
+            tick <= (others => '0');
+        elsif rising_edge(clk) then
+            if tick < to_unsigned(tDONE, tick'length) then
+                tick <= tick + 1;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------
+    -- ADC_CONVST
+    ADC_CONVST <= '1' when (to_integer(tick) >= tCONVST_HIGH_START and to_integer(tick) < tCONVST_HIGH_END) else '0';
+
+    --------------------------------------------
+    -- ADC_SCK generation
+    process(clk, reset_n)
+    begin
+        if reset_n = '0' then
+            clk_enable <= '0';
+        elsif falling_edge(clk) then
+            if (to_integer(tick) >= tCLK_START and to_integer(tick) < tCLK_END) then
+                clk_enable <= '1';
+            else
+                clk_enable <= '0';
+            end if;
+        end if;
+    end process;
+
+    ADC_SCK <= clk when clk_enable = '1' else '0';
+
+    --------------------------------------------
+    -- read data
+    process(clk, reset_n)
+    begin
+        if reset_n = '0' then
+            read_data <= (others => '0');
+            write_pos <= DATA_BITS_NUM-1;
+        elsif falling_edge(clk) then
+            if clk_enable = '1' then
+                read_data(write_pos) <= ADC_SDO;
+                write_pos <= write_pos - 1;
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------
+    -- measure done
+    process(clk, reset_n)
+    begin
+        if reset_n = '0' then
+            measure_done_r <= '0';
+        elsif rising_edge(clk) then
+            if to_integer(tick) = tDONE then
+                measure_done_r <= '1';
+            end if;
+        end if;
+    end process;
+
+    --------------------------------------------
+    -- config command (depends on channel)
+    process(reset_n)
+    begin
+        if reset_n = '0' then
+            case measure_ch is
+                when "000" => config_cmd <= "1000" & UNI_MODE & SLP_MODE;
+                when "001" => config_cmd <= "1100" & UNI_MODE & SLP_MODE;
+                when "010" => config_cmd <= "1001" & UNI_MODE & SLP_MODE;
+                when "011" => config_cmd <= "1101" & UNI_MODE & SLP_MODE;
+                when "100" => config_cmd <= "1010" & UNI_MODE & SLP_MODE;
+                when "101" => config_cmd <= "1110" & UNI_MODE & SLP_MODE;
+                when "110" => config_cmd <= "1011" & UNI_MODE & SLP_MODE;
+                when "111" => config_cmd <= "1111" & UNI_MODE & SLP_MODE;
+                when others => config_cmd <= "1111" & "00";
+            end case;
+        end if;
+    end process;
+
+    --------------------------------------------
+    -- serial config shift
+    process(clk)
+    begin
+        if falling_edge(clk) then
+            if to_integer(tick) = tCONFIG_START then
+                ADC_SDI_r <= config_cmd(CMD_BITS_NUM-1);
+                sdi_index <= CMD_BITS_NUM-2;
+            elsif (to_integer(tick) > tCLK_START and to_integer(tick) <= tCONFIG_END) then
+                ADC_SDI_r <= config_cmd(sdi_index);
+                sdi_index <= sdi_index - 1;
+            elsif to_integer(tick) > tCONFIG_END then
+                ADC_SDI_r <= '0';
+            end if;
+        end if;
+    end process;
+
+end architecture;

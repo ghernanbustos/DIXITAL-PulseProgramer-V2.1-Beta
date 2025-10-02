@@ -1,0 +1,209 @@
+--------------------------------------------------------------------------------
+--	  Autor: 			  Guillermo H. Bustos, ghernanbustos@gmail.com
+--   FileName:         fsm_init_SingleToneV2.vhd
+--   Design Software:  Quartus Prime Lite Edition 22.1 Std Edition
+--	  Working place:    Universidad Nacional de Cordoba - FAMAF - LARTE
+--   Project: 			  Dixital 
+--	  Company: 			  Trovintek
+--   Version History
+--   	Version 2.0 07/2023 
+--	
+--	  Brief: 
+-- 	
+-- 	Fetch 8 control words from a memory 
+--							 CtrlWord [8 bits address + 8 Bits Configuration]
+-- 	System Clock set on 180Mhz (9x internal multiplier and 20Mhz pcb ref clock)
+--		Master Reset needs to be high during 10 internal clock cycles to initialize the module.
+--			Check Internal DDS Frecuency = 20Mhz Check, PPL active and multiplier x9. With a FPGA
+-- 		clock about 50Mhz 6/5 cycles its enough to ensure Reset.
+-- 		Master Reset sets initial values all register, to update values needs an Update Signal.
+
+--------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+ENTITY fsm_init_SingleToneV2 IS
+  port (
+		clk_fsm_SingleTone     	: 	IN  std_logic; -- clk_fsm_SingleTone 25Mhz
+		rst_n_fsm_SingleTone   	: 	IN  std_logic; -- External switch
+		start_fsm_SingleTone		: 	IN  std_logic; -- Push button tu start fsm
+		-- Mem Control Signal
+		rd_InitMem					: 	OUT std_logic;  
+		wr_InitMem					: 	OUT std_logic; 
+		en_InitMem					: 	OUT std_logic; 
+		-- Debugging flags
+		fsm_initEND					:	OUT std_logic;
+		s0,s1,s2,s3,s4				:	OUT std_logic;	
+		-- DDS Write Data Control	
+		masterRst	 				:	OUT std_logic;	-- dds Master Rst on
+		rd_n			 				: 	OUT std_logic; -- Read off
+		wd_n			 				:	OUT std_logic;	-- write off
+		FSK_BPSK_HOLD				:	OUT std_logic;
+		I_O_update					:	OUT std_logic;
+		AddressMemInit				:	OUT std_logic_vector(4 downto 0)
+  );
+END ENTITY fsm_init_SingleToneV2;
+------------------------------------------------
+ARCHITECTURE Behavioral OF fsm_init_SingleToneV2 IS
+  -- Signals declarations
+  TYPE state_type IS (initialState, state_1, state_2, state_3, state_4, state_5);	 
+  SIGNAL state : state_type; 					 
+  
+BEGIN
+state_transition: PROCESS (clk_fsm_SingleTone, rst_n_fsm_SingleTone, start_fsm_SingleTone) 	--sensitive list
+  	-- Variables declarations
+	VARIABLE count_MtrRst 		: INTEGER RANGE 0 TO 6; -- about 140 nS with DDS Reset ON
+	VARIABLE count_AddressMem 	: INTEGER RANGE 0 TO 31;	-- 8 memories positions
+	BEGIN
+		IF (rst_n_fsm_SingleTone = '0') THEN   -- asynchronous reset
+			state <= initialState;					-- start_fsm_SingleTone works as start or reset
+			count_MtrRst	  := 0;
+			count_AddressMem := 0;
+			AddressMemInit <= std_logic_vector(to_unsigned(count_AddressMem, AddressMemInit'length));
+		ELSIF (clk_fsm_SingleTone'EVENT AND clk_fsm_SingleTone ='1') THEN   				-- Change State
+			CASE state IS
+				WHEN initialState =>
+					IF (start_fsm_SingleTone = '1') THEN -- take in account_MtrRst to set edge detection
+						state <= state_1;	
+					ELSE 
+						state <= initialState;
+					END IF;
+				WHEN state_1 =>					         
+					count_MtrRst := count_MtrRst + 1;				-- 
+					IF (count_MtrRst=6) THEN count_MtrRst := 0;
+						state <= state_2;
+					ELSE 
+						state <= state_1; 
+					END IF;
+				WHEN state_2 =>					-- 
+					state <= state_3;  -- Remains to set mux
+	-- FROM HERE -----------------------------------
+				WHEN state_3 =>	-- First time count_AddressMem = 0
+						state <= state_4; 
+						AddressMemInit <= std_logic_vector(to_unsigned(count_AddressMem, AddressMemInit'length));
+				WHEN state_4 =>					 
+					count_AddressMem := count_AddressMem + 1;				
+					IF (count_AddressMem = 7) THEN count_AddressMem := 0;
+						state <= state_5;
+					ELSE 
+						state <= state_3; 
+					END IF;
+				WHEN state_5 =>					-- 
+					state <= state_5;  -- Remains to set mux
+					
+			END CASE;
+		END IF;
+	END PROCESS state_transition;
+  
+  
+Output_logic: PROCESS (state)
+	BEGIN							
+ 		CASE state IS
+			WHEN initialState => -- Initial state
+				rd_InitMem		<= '0';	
+				wr_InitMem		<= '0';	
+				en_InitMem		<= '0';	
+				masterRst	 	<= '0';	
+				rd_n			 	<= '1';  
+				wd_n			 	<= '1';	
+				FSK_BPSK_HOLD	<= 'Z';	
+				I_O_update		<= '0';
+				fsm_initEND		<= '0';
+				s0	<= '1';
+				s1	<= '0';				
+				s2	<= '0';
+				s3	<= '0';
+				s4	<= '0';
+
+				
+			WHEN state_1 => -- Master RST delayed 
+				rd_InitMem		<= '0';	
+				wr_InitMem		<= '0';	
+				en_InitMem		<= '0';	
+				masterRst	 	<= '1';	-- dds Master Rst on 
+				rd_n			 	<= '1';  
+				wd_n			 	<= '1';	
+				FSK_BPSK_HOLD	<= 'Z';	
+				I_O_update		<= '0';
+				fsm_initEND		<= '0';
+				s0	<= '0';
+				s1	<= '1';				
+				s2	<= '0';
+				s3	<= '0';
+				s4	<= '0';
+
+			WHEN state_2 => -- Update Master Reset
+				rd_InitMem		<= '0';	
+				wr_InitMem		<= '0';	
+				en_InitMem		<= '0';	
+				masterRst	 	<= '0';	-- dds Master Rst on 
+				rd_n			 	<= '1';  
+				wd_n			 	<= '1';	
+				FSK_BPSK_HOLD	<= 'Z';	
+				I_O_update		<= '1';
+				fsm_initEND		<= '0';
+				s0	<= '0';
+				s1	<= '1';				
+				s2	<= '0';
+				s3	<= '0';
+				s4	<= '0';
+-- ----------------------------------------------------------------
+			WHEN state_3 =>
+				rd_InitMem		<= '1';	
+				wr_InitMem		<= '0';	
+				en_InitMem		<= '1';
+				--
+				masterRst	 	<= '0';	
+				rd_n			 	<= '1';  -- Read off
+				wd_n			 	<= '1';	-- write off
+				FSK_BPSK_HOLD	<= 'Z';
+				I_O_update		<= '0';
+				fsm_initEND		<= '0';
+				s0	<= '0';
+				s1	<= '0';				
+				s2	<= '1';
+				s3	<= '0';
+				s4	<= '0';
+--				AddressMemInit <= std_logic_vector(to_unsigned(count_AddressMem, AddressMemInit'length));
+	
+			WHEN state_4 => 
+				rd_InitMem		<= '1';	
+				wr_InitMem		<= '0';	
+				en_InitMem		<= '1';
+				--
+				masterRst	 	<= '0';	-- dds Master 
+				rd_n			 	<= '1';  -- Read off
+				wd_n			 	<= '0';	-- write ON
+				FSK_BPSK_HOLD	<= 'Z';
+				I_O_update		<= '0';
+				fsm_initEND		<= '0';
+				s0	<= '0';
+				s1	<= '0';				
+				s2	<= '0';
+				s3	<= '1';
+				s4	<= '0';
+--				AddressMemInit <= std_logic_vector(to_unsigned(count_AddressMem, AddressMemInit'length));
+
+			WHEN state_5 => 
+				rd_InitMem		<= '0';	
+				wr_InitMem		<= '0';	
+				en_InitMem		<= '0';
+				--
+				masterRst	 	<= '0';	-- dds Master 
+				rd_n			 	<= '1';  -- Read off
+				wd_n			 	<= '1';	-- write ON
+				FSK_BPSK_HOLD	<= 'Z';
+				I_O_update		<= '0';
+				fsm_initEND		<= '1';
+				s0	<= '0';
+				s1	<= '0';				
+				s2	<= '0';
+				s3	<= '0';
+				s4	<= '1';
+--				AddressMemInit <= std_logic_vector(to_unsigned(count_AddressMem, AddressMemInit'length));
+
+		END CASE;
+	END PROCESS Output_logic; -- Outputs are updated at the end of the process
+
+END ARCHITECTURE Behavioral;

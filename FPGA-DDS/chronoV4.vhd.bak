@@ -1,0 +1,59 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity chronoV4 is
+    port (
+        clk_chrono       : in  std_logic;  -- Clock in 50 MHz
+        nRst_chrono      : in  std_logic;  -- Active-low reset
+        --
+        en_chrono        : in  std_logic;  -- Start signal from FSM
+        setPrecount      : in  std_logic;  -- Load precount value
+        precountValue    : in  std_logic_vector(31 downto 0); -- Preload value
+        --
+        pulseSignal      : out std_logic;  -- High when counting
+        overflowChrono   : out std_logic   -- High when overflow reached
+    );
+end chronoV4;
+
+architecture Behavioral of chronoV4 is
+    signal precount_reg  : unsigned(31 downto 0) := (others => '0');
+    signal counter       : unsigned(31 downto 0) := (others => '0');
+    signal is_counting   : std_logic := '0';
+begin
+
+    process(clk_chrono)
+    begin
+        if rising_edge(clk_chrono) then
+            if nRst_chrono = '0' then
+                precount_reg    <= (others => '0');
+                counter         <= (others => '0');
+                is_counting     <= '0';
+                overflowChrono  <= '0';
+            else
+                overflowChrono <= '0';  -- default low
+
+                -- Load precount register
+                if setPrecount = '1' then
+                    precount_reg <= unsigned(precountValue);
+                end if;
+
+                -- Start counting
+                if en_chrono = '1' and is_counting = '0' then
+                    counter      <= precount_reg;
+                    is_counting  <= '1';
+                elsif is_counting = '1' then
+                    if counter = x"FFFFFFFF" then
+                        is_counting    <= '0';
+                        overflowChrono <= '1';
+                    else
+                        counter <= counter + 1;
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+
+    pulseSignal <= is_counting;
+
+end architecture;

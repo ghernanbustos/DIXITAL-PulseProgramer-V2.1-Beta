@@ -1,0 +1,35 @@
+# Compile of genericChrono.vhd was successful.
+vsim work.genericchrono
+# vsim work.genericchrono 
+# Start time: 11:42:29 on Sep 19,2023
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.genericchrono(behavioral)
+add wave -position insertpoint  \
+sim:/genericchrono/clk_count
+add wave -position insertpoint  \
+sim:/genericchrono/clk_count \
+sim:/genericchrono/nRst_count \
+sim:/genericchrono/en_count \
+sim:/genericchrono/en_preload \
+sim:/genericchrono/preload_count
+force -freeze sim:/genericchrono/clk_count 1 0, 0 {50 ps} -r 100
+force -freeze sim:/genericchrono/clk_count 1 0, 0 {50 ps} -r 100
+force -freeze sim:/genericchrono/clk_count 1 0
+force -freeze sim:/genericchrono/nRst_count 1 0
+run
+force -freeze sim:/genericchrono/clk_count 1 0, 0 {50 ps} -r 100
+run
+run
+run
+run
+force -freeze sim:/genericchrono/nRst_count 0 0
+run
+force -freeze sim:/genericchrono/nRst_count 0 0
+force -freeze sim:/genericchrono/nRst_count 0 0
+run
+# Break key hit
+# End time: 11:53:35 on Sep 19,2023, Elapsed time: 0:11:06
+# Errors: 0, Warnings: 5

@@ -1,0 +1,425 @@
+Flow report for ddsAD9854
+Fri Sep  5 19:35:15 2025
+Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++---------------------------------+------------------------------------------------+
+; Flow Status                     ; Successful - Fri Sep  5 19:35:15 2025          ;
+; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
+; Revision Name                   ; ddsAD9854                                      ;
+; Top-level Entity Name           ; top_level_block                                ;
+; Family                          ; Cyclone V                                      ;
+; Device                          ; 5CSEMA4U23C6                                   ;
+; Timing Models                   ; Final                                          ;
+; Logic utilization (in ALMs)     ; 1,238 / 15,880 ( 8 % )                         ;
+; Total registers                 ; 1695                                           ;
+; Total pins                      ; 155 / 314 ( 49 % )                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 60,416 / 2,764,800 ( 2 % )                     ;
+; Total DSP Blocks                ; 0 / 84 ( 0 % )                                 ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 1 / 5 ( 20 % )                                 ;
+; Total DLLs                      ; 1 / 4 ( 25 % )                                 ;
++---------------------------------+------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 09/05/2025 19:30:43 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; ddsAD9854           ;
++-------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                                                                             ;
++---------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------+-------------------------------------+-----------------------------------+
+; Assignment Name                       ; Value                                                                               ; Default Value                        ; Entity Name                         ; Section Id                        ;
++---------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------+-------------------------------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID                 ; 75011217000222.175711143908832                                                      ; --                                   ; --                                  ; --                                ;
+; ECO_REGENERATE_REPORT                 ; On                                                                                  ; Off                                  ; --                                  ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST       ; Off                                                                                 ; --                                   ; --                                  ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST       ; Off                                                                                 ; --                                   ; --                                  ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST       ; Off                                                                                 ; --                                   ; --                                  ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST       ; Off                                                                                 ; --                                   ; --                                  ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT                ; Vhdl                                                                                ; --                                   ; --                                  ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                   ; ModelSim (VHDL)                                                                     ; <None>                               ; --                                  ; --                                ;
+; EDA_TIME_SCALE                        ; 1 ps                                                                                ; --                                   ; --                                  ; eda_simulation                    ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/alt_types.pre.h                      ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/emif.pre.xml                         ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sdram_io.pre.h                       ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer.pre.c                      ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer.pre.h                      ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_auto.pre.h                 ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_auto_ac_init.pre.c         ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c       ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_defines.pre.h              ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/system.pre.h                         ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/tclrpt.pre.c                         ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/sequencer/tclrpt.pre.h                         ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_ISW_FILE                          ; hps_dds_wrapper/synthesis/submodules/hps.pre.xml                                    ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; HPS_PARTITION                         ; On                                                                                  ; --                                   ; hps_dds_wrapper_hps_0_hps_io_border ; --                                ;
+; MAX_CORE_JUNCTION_TEMP                ; 85                                                                                  ; --                                   ; --                                  ; --                                ;
+; MIN_CORE_JUNCTION_TEMP                ; 0                                                                                   ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/../hps_dds_wrapper.cmp                                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/../../output_files/C                                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/hps_dds_wrapper_hps_0_hps.svd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/../../hps_dds_wrapper.qsys                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/alt_types.pre.h                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/emif.pre.xml                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sdram_io.pre.h                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer.pre.c                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer.pre.h                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_auto.pre.h                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_auto_ac_init.pre.c         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_auto_inst_init.pre.c       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/sequencer_defines.pre.h              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/system.pre.h                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/tclrpt.pre.c                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/sequencer/tclrpt.pre.h                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; hps_dds_wrapper/synthesis/submodules/hps.pre.xml                                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; pll.cmp                                                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; pll_sim/pll.vho                                                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ram_PreLoad32x32.bsf                                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ram_PreLoad32x32.cmp                                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ramPTW_Data64x8.bsf                                                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ramPTW_Data64x8.cmp                                                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; Ram_InitModule.bsf                                                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; Ram_InitModule.cmp                                                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ramFTW_32x16.bsf                                                                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ramFTW_32x16.cmp                                                                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; pll1.cmp                                                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; pll1_sim/pll1.vho                                                                   ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/dspba_library_package.vhd                               ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/dspba_library.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/auk_dspip_math_pkg_hpfir.vhd                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/auk_dspip_lib_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd               ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/auk_dspip_avalon_streaming_source_hpfir.vhd             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/auk_dspip_roundsat_hpfir.vhd                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/altera_avalon_sc_fifo.v                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_rtl_core.vhd                                   ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_ast.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_nativelink.tcl                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_msim.tcl                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_tb.vhd                                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_mlab.m                                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_model.m                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_coef_int.txt                                   ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_input.txt                                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim/fir_sinc_param.txt                                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim.cmp                                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/dspba_library_package.vhd                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/dspba_library.vhd                                   ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/auk_dspip_math_pkg_hpfir.vhd                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/auk_dspip_lib_pkg_hpfir.vhd                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/auk_dspip_avalon_streaming_source_hpfir.vhd         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/auk_dspip_roundsat_hpfir.vhd                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/altera_avalon_sc_fifo.v                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_rtl_core.vhd                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_ast.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim.vhd                                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_nativelink.tcl                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_msim.tcl                               ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_tb.vhd                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_mlab.m                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_model.m                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_coef_int.txt                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_input.txt                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip/fir_sinc_sim_sim/fir_sinc_sim_param.txt                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_2/fir_2_sim/fir_2_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_3/fir_3_sim/fir_3_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_4/fir_4_sim/fir_4_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_5/fir_5_sim/fir_5_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_6/fir_6_sim/fir_6_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_7/fir_7_sim/fir_7_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8.cmp                                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/dspba_library_package.vhd                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/dspba_library.vhd                                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/auk_dspip_math_pkg_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/auk_dspip_lib_pkg_hpfir.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/auk_dspip_avalon_streaming_source_hpfir.vhd              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/auk_dspip_roundsat_hpfir.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/altera_avalon_sc_fifo.v                                  ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_rtl_core.vhd                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_ast.vhd                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8.vhd                                                ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_nativelink.tcl                                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_msim.tcl                                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_tb.vhd                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_mlab.m                                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_model.m                                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_coef_int.txt                                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_input.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_8/fir_8_sim/fir_8_param.txt                                          ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank.cmp                                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/dspba_library_package.vhd                       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/dspba_library.vhd                               ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/auk_dspip_math_pkg_hpfir.vhd                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/auk_dspip_lib_pkg_hpfir.vhd                     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd       ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/auk_dspip_avalon_streaming_source_hpfir.vhd     ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/auk_dspip_roundsat_hpfir.vhd                    ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/altera_avalon_sc_fifo.v                         ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_rtl_core.vhd                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_ast.vhd                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank.vhd                                 ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_nativelink.tcl                      ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_msim.tcl                            ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_tb.vhd                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_mlab.m                              ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_model.m                             ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_coef_int.txt                        ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_input.txt                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ip_core/fir_ip_bank/fir_ip_bank_sim/fir_ip_bank_param.txt                           ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ramTEST_64x32.bsf                                                                   ; --                                   ; --                                  ; --                                ;
+; MISC_FILE                             ; ramTEST_64x32.cmp                                                                   ; --                                   ; --                                  ; --                                ;
+; NUM_PARALLEL_PROCESSORS               ; 4                                                                                   ; --                                   ; --                                  ; --                                ;
+; PARTITION_COLOR                       ; -- (Not supported for targeted family)                                              ; --                                   ; top_level_block                     ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL   ; -- (Not supported for targeted family)                                              ; --                                   ; top_level_block                     ; Top                               ;
+; PARTITION_NETLIST_TYPE                ; -- (Not supported for targeted family)                                              ; --                                   ; top_level_block                     ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL             ; None (CONSERVATIVE)                                                                 ; --                                   ; --                                  ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION         ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                               ; --                                   ; --                                  ; --                                ;
+; PROJECT_IP_REGENERATION_POLICY        ; ALWAYS_REGENERATE_IP                                                                ; SKIP_REGENERATING_IP_IF_HDL_MODIFIED ; --                                  ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY              ; output_files                                                                        ; --                                   ; --                                  ; --                                ;
+; SLD_FILE                              ; hps_dds_wrapper/synthesis/hps_dds_wrapper.regmap                                    ; --                                   ; --                                  ; --                                ;
+; SLD_FILE                              ; hps_dds_wrapper/synthesis/hps_dds_wrapper.debuginfo                                 ; --                                   ; --                                  ; --                                ;
+; SLD_INFO                              ; QSYS_NAME hps_dds_wrapper HAS_SOPCINFO 1 GENERATION_ID 1730149620                   ; --                                   ; hps_dds_wrapper                     ; --                                ;
+; SOPCINFO_FILE                         ; hps_dds_wrapper/synthesis/../../hps_dds_wrapper.sopcinfo                            ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; pll.spd                                                                             ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; pll1.spd                                                                            ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip/fir_sinc.spd                                                         ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip/fir_sinc_sim.spd                                                     ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_2/fir_2.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_3/fir_3.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_4/fir_4.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_5/fir_5.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_6/fir_6.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_7/fir_7.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_8/fir_8.spd                                                          ; --                                   ; --                                  ; --                                ;
+; SPD_FILE                              ; ip_core/fir_ip_bank/fir_ip_bank.spd                                                 ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
+; TOP_LEVEL_ENTITY                      ; top_level_block                                                                     ; ddsAD9854                            ; --                                  ; --                                ;
+; USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ; On                                                                                  ; Off                                  ; --                                  ; --                                ;
++---------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------+-------------------------------------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 5300 MB             ; 00:00:31                           ;
+; Fitter               ; 00:01:08     ; 1.1                     ; 7333 MB             ; 00:01:54                           ;
+; Assembler            ; 00:00:07     ; 1.0                     ; 5062 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:20     ; 1.2                     ; 5717 MB             ; 00:00:23                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4887 MB             ; 00:00:03                           ;
+; Total                ; 00:02:03     ; --                      ; --                  ; 00:02:56                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off ddsAD9854 -c ddsAD9854
+quartus_fit --read_settings_files=off --write_settings_files=off ddsAD9854 -c ddsAD9854
+quartus_asm --read_settings_files=off --write_settings_files=off ddsAD9854 -c ddsAD9854
+quartus_sta ddsAD9854 -c ddsAD9854
+quartus_eda --read_settings_files=off --write_settings_files=off ddsAD9854 -c ddsAD9854
+
+
+

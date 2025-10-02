@@ -1,0 +1,149 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 248 288)
+	(text "fsm_init_SingleTone" (rect 5 0 85 12)(font "Arial" ))
+	(text "inst" (rect 8 256 20 268)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk_fsm1" (rect 0 0 36 12)(font "Arial" ))
+		(text "clk_fsm1" (rect 21 27 57 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "rst_n_fsm1" (rect 0 0 47 12)(font "Arial" ))
+		(text "rst_n_fsm1" (rect 21 43 68 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "start_fsm1" (rect 0 0 43 12)(font "Arial" ))
+		(text "start_fsm1" (rect 21 59 64 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "out_mux" (rect 0 0 35 12)(font "Arial" ))
+		(text "out_mux" (rect 176 27 211 39)(font "Arial" ))
+		(line (pt 232 32)(pt 216 32)(line_width 1))
+	)
+	(port
+		(pt 232 48)
+		(output)
+		(text "fsm_initEND" (rect 0 0 53 12)(font "Arial" ))
+		(text "fsm_initEND" (rect 158 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 1))
+	)
+	(port
+		(pt 232 64)
+		(output)
+		(text "s0" (rect 0 0 9 12)(font "Arial" ))
+		(text "s0" (rect 202 59 211 71)(font "Arial" ))
+		(line (pt 232 64)(pt 216 64)(line_width 1))
+	)
+	(port
+		(pt 232 80)
+		(output)
+		(text "s1" (rect 0 0 8 12)(font "Arial" ))
+		(text "s1" (rect 203 75 211 87)(font "Arial" ))
+		(line (pt 232 80)(pt 216 80)(line_width 1))
+	)
+	(port
+		(pt 232 96)
+		(output)
+		(text "s2" (rect 0 0 9 12)(font "Arial" ))
+		(text "s2" (rect 202 91 211 103)(font "Arial" ))
+		(line (pt 232 96)(pt 216 96)(line_width 1))
+	)
+	(port
+		(pt 232 112)
+		(output)
+		(text "s3" (rect 0 0 9 12)(font "Arial" ))
+		(text "s3" (rect 202 107 211 119)(font "Arial" ))
+		(line (pt 232 112)(pt 216 112)(line_width 1))
+	)
+	(port
+		(pt 232 128)
+		(output)
+		(text "s4" (rect 0 0 10 12)(font "Arial" ))
+		(text "s4" (rect 201 123 211 135)(font "Arial" ))
+		(line (pt 232 128)(pt 216 128)(line_width 1))
+	)
+	(port
+		(pt 232 144)
+		(output)
+		(text "masterRst" (rect 0 0 43 12)(font "Arial" ))
+		(text "masterRst" (rect 168 139 211 151)(font "Arial" ))
+		(line (pt 232 144)(pt 216 144)(line_width 1))
+	)
+	(port
+		(pt 232 160)
+		(output)
+		(text "rd_n" (rect 0 0 18 12)(font "Arial" ))
+		(text "rd_n" (rect 193 155 211 167)(font "Arial" ))
+		(line (pt 232 160)(pt 216 160)(line_width 1))
+	)
+	(port
+		(pt 232 176)
+		(output)
+		(text "wd_n" (rect 0 0 21 12)(font "Arial" ))
+		(text "wd_n" (rect 190 171 211 183)(font "Arial" ))
+		(line (pt 232 176)(pt 216 176)(line_width 1))
+	)
+	(port
+		(pt 232 192)
+		(output)
+		(text "FSK_BPSK_HOLD" (rect 0 0 82 12)(font "Arial" ))
+		(text "FSK_BPSK_HOLD" (rect 129 187 211 199)(font "Arial" ))
+		(line (pt 232 192)(pt 216 192)(line_width 1))
+	)
+	(port
+		(pt 232 208)
+		(output)
+		(text "I_O_update" (rect 0 0 47 12)(font "Arial" ))
+		(text "I_O_update" (rect 164 203 211 215)(font "Arial" ))
+		(line (pt 232 208)(pt 216 208)(line_width 1))
+	)
+	(port
+		(pt 232 224)
+		(output)
+		(text "address[5..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "address[5..0]" (rect 160 219 211 231)(font "Arial" ))
+		(line (pt 232 224)(pt 216 224)(line_width 3))
+	)
+	(port
+		(pt 232 240)
+		(output)
+		(text "data[7..0]" (rect 0 0 36 12)(font "Arial" ))
+		(text "data[7..0]" (rect 175 235 211 247)(font "Arial" ))
+		(line (pt 232 240)(pt 216 240)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 256)(line_width 1))
+	)
+)
