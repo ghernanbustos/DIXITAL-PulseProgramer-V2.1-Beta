@@ -4,151 +4,303 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "SquarePulseOut",
+					"name" : "flag_clkout",
 					"strict" : false
 				},
 				{
-					"name" : "ud_ptw_trigger",
+					"name" : "sin_out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "chrono22Output",
+					"name" : "sin_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "led0",
+					"name" : "sin_out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "led1",
+					"name" : "sin_out[3]",
 					"strict" : false
 				},
 				{
-					"name" : "led2",
+					"name" : "sin_out[4]",
 					"strict" : false
 				},
 				{
-					"name" : "led3",
+					"name" : "sin_out[5]",
 					"strict" : false
 				},
 				{
-					"name" : "led4",
+					"name" : "sin_out[6]",
 					"strict" : false
 				},
 				{
-					"name" : "led5",
+					"name" : "sin_out[7]",
 					"strict" : false
 				},
 				{
-					"name" : "led6",
+					"name" : "sin_out[8]",
 					"strict" : false
 				},
 				{
-					"name" : "led7",
+					"name" : "sin_out[9]",
 					"strict" : false
 				},
 				{
-					"name" : "SDO",
+					"name" : "sin_out[10]",
 					"strict" : false
 				},
 				{
-					"name" : "adc_conv_end_flag",
+					"name" : "sin_out[11]",
 					"strict" : false
 				},
 				{
-					"name" : "conv_init_pulse",
+					"name" : "cos_out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "adc_chip_clk_40",
+					"name" : "cos_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[20]",
+					"name" : "cos_out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[19]",
+					"name" : "cos_out[3]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[18]",
+					"name" : "cos_out[4]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[17]",
+					"name" : "cos_out[5]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[16]",
+					"name" : "cos_out[6]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[15]",
+					"name" : "cos_out[7]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[14]",
+					"name" : "cos_out[8]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[13]",
+					"name" : "cos_out[9]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[12]",
+					"name" : "cos_out[10]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[11]",
+					"name" : "cos_out[11]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[10]",
+					"name" : "sinc_out[0]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[9]",
+					"name" : "sinc_out[1]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[8]",
+					"name" : "sinc_out[2]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[7]",
+					"name" : "sinc_out[3]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[6]",
+					"name" : "sinc_out[4]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[5]",
+					"name" : "sinc_out[5]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[4]",
+					"name" : "sinc_out[6]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[2]",
+					"name" : "sinc_out[7]",
 					"strict" : false
 				},
 				{
-					"name" : "ddsDataOut[0]",
+					"name" : "sinc_out[8]",
 					"strict" : false
 				},
 				{
-					"name" : "SDI",
+					"name" : "sinc_out[9]",
 					"strict" : false
 				},
 				{
-					"name" : "adc_rst_n",
+					"name" : "sinc_out[10]",
 					"strict" : false
 				},
 				{
-					"name" : "clock_50",
+					"name" : "sinc_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "sinc_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "squ_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "saw_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[0]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[1]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[2]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[3]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[4]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[5]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[6]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[7]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[8]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[9]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[10]",
+					"strict" : false
+				},
+				{
+					"name" : "lut_addr_db[11]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
 					"strict" : false
 				},
 				{
@@ -156,7 +308,135 @@
 					"strict" : false
 				},
 				{
-					"name" : "init_adc_conv",
+					"name" : "nco_enable",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[20]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[21]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[22]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[23]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[24]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[25]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[26]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[27]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[28]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[29]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[30]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[31]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[19]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[18]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[17]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[16]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[15]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[14]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[13]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[12]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[11]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[10]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[9]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[8]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[7]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[6]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[5]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[4]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[3]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[2]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[1]",
+					"strict" : false
+				},
+				{
+					"name" : "phase_inc[0]",
 					"strict" : false
 				}
 			]

@@ -31,7 +31,9 @@
 * 				op_code = 0 writes and preload data in FPGA buffer memory
 * 				op_code = 1 reads one block preload data in buffer at once.
 * 				op_code = 2 Fetch preload data in buffer and writes DDS registers controlled by HPS
-*
+* This function are used by manual FPGA - DDS configuration. All data is first stored in FPGA BUFFERS and then excecuted
+* to configure DDS. This function are used by parser.c when reading the machine code program to preload data and excecute
+* a PULSE SEQUENCE.
 *
 * All op 2 except when using PGR module, are used for init buffers fsm manually.
 *
@@ -70,9 +72,9 @@
 * Returns: None.
 * Params:
 * 	4 parameters related with dds config register
-* 	1 parameter for read/write buffer operation op_code = 0 writes and preload data in FPGA buffer memory
-* 												op_code = 1 reads one block preload data in buffer at once.
-* 												op_code = 2 Fetch preload data in buffer and writes DDS registers
+* 	1 parameter for read/write buffer operation op_code = 0 preload data in FPGA buffer memory
+* 												op_code = 1 reads preloaded data in a determinated buffer position.
+* 												op_code = 2 excecute preloaded data in buffer and writes DDS registers.
 * 	op_code 0 and op_code 1 is controlled by HPS,
 * 	op_code 2 HPS only inits fsm that sequence data to DDS, after this, expects for FSM end flag.
 * 	1 parameter to set offset memory direction to access to differents memories position.

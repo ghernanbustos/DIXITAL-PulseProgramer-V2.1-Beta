@@ -1,5 +1,5 @@
 Flow report for ddsAD9854
-Fri Sep  5 19:35:15 2025
+Wed Mar 11 11:13:07 2026
 Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
 
 
@@ -41,25 +41,25 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Fri Sep  5 19:35:15 2025          ;
+; Flow Status                     ; Successful - Wed Mar 11 11:13:07 2026          ;
 ; Quartus Prime Version           ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
 ; Revision Name                   ; ddsAD9854                                      ;
-; Top-level Entity Name           ; top_level_block                                ;
+; Top-level Entity Name           ; waveform_gen_V3                                ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA4U23C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 1,238 / 15,880 ( 8 % )                         ;
-; Total registers                 ; 1695                                           ;
-; Total pins                      ; 155 / 314 ( 49 % )                             ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 56                                             ;
+; Total pins                      ; 112                                            ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 60,416 / 2,764,800 ( 2 % )                     ;
-; Total DSP Blocks                ; 0 / 84 ( 0 % )                                 ;
+; Total block memory bits         ; 151,552                                        ;
+; Total DSP Blocks                ; 0                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
 ; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 1 / 5 ( 20 % )                                 ;
-; Total DLLs                      ; 1 / 4 ( 25 % )                                 ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
 +---------------------------------+------------------------------------------------+
 
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/05/2025 19:30:43 ;
+; Start date & time ; 03/11/2026 11:09:58 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; ddsAD9854           ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------+-------------------------------------+-----------------------------------+
 ; Assignment Name                       ; Value                                                                               ; Default Value                        ; Entity Name                         ; Section Id                        ;
 +---------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------+-------------------------------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                 ; 75011217000222.175711143908832                                                      ; --                                   ; --                                  ; --                                ;
+; COMPILER_SIGNATURE_ID                 ; 75011217000222.177323819225300                                                      ; --                                   ; --                                  ; --                                ;
 ; ECO_REGENERATE_REPORT                 ; On                                                                                  ; Off                                  ; --                                  ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST       ; Off                                                                                 ; --                                   ; --                                  ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST       ; Off                                                                                 ; --                                   ; --                                  ; eda_board_design_boundary_scan    ;
@@ -345,9 +345,9 @@ https://fpgasoftware.intel.com/eula.
 ; MISC_FILE                             ; ramTEST_64x32.bsf                                                                   ; --                                   ; --                                  ; --                                ;
 ; MISC_FILE                             ; ramTEST_64x32.cmp                                                                   ; --                                   ; --                                  ; --                                ;
 ; NUM_PARALLEL_PROCESSORS               ; 4                                                                                   ; --                                   ; --                                  ; --                                ;
-; PARTITION_COLOR                       ; -- (Not supported for targeted family)                                              ; --                                   ; top_level_block                     ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL   ; -- (Not supported for targeted family)                                              ; --                                   ; top_level_block                     ; Top                               ;
-; PARTITION_NETLIST_TYPE                ; -- (Not supported for targeted family)                                              ; --                                   ; top_level_block                     ; Top                               ;
+; PARTITION_COLOR                       ; -- (Not supported for targeted family)                                              ; --                                   ; waveform_gen_V3                     ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL   ; -- (Not supported for targeted family)                                              ; --                                   ; waveform_gen_V3                     ; Top                               ;
+; PARTITION_NETLIST_TYPE                ; -- (Not supported for targeted family)                                              ; --                                   ; waveform_gen_V3                     ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL             ; None (CONSERVATIVE)                                                                 ; --                                   ; --                                  ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION         ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                               ; --                                   ; --                                  ; --                                ;
 ; PROJECT_IP_REGENERATION_POLICY        ; ALWAYS_REGENERATE_IP                                                                ; SKIP_REGENERATING_IP_IF_HDL_MODIFIED ; --                                  ; --                                ;
@@ -380,7 +380,7 @@ https://fpgasoftware.intel.com/eula.
 ; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
 ; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
 ; SYNTHESIS_ONLY_QIP                    ; On                                                                                  ; --                                   ; --                                  ; --                                ;
-; TOP_LEVEL_ENTITY                      ; top_level_block                                                                     ; ddsAD9854                            ; --                                  ; --                                ;
+; TOP_LEVEL_ENTITY                      ; waveform_gen_V3                                                                     ; ddsAD9854                            ; --                                  ; --                                ;
 ; USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ; On                                                                                  ; Off                                  ; --                                  ; --                                ;
 +---------------------------------------+-------------------------------------------------------------------------------------+--------------------------------------+-------------------------------------+-----------------------------------+
 
@@ -390,12 +390,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:25     ; 1.0                     ; 5300 MB             ; 00:00:31                           ;
-; Fitter               ; 00:01:08     ; 1.1                     ; 7333 MB             ; 00:01:54                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 5062 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:20     ; 1.2                     ; 5717 MB             ; 00:00:23                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4887 MB             ; 00:00:03                           ;
-; Total                ; 00:02:03     ; --                      ; --                  ; 00:02:56                           ;
+; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 5059 MB             ; 00:00:36                           ;
+; Total                ; 00:00:22     ; --                      ; --                  ; 00:00:36                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -405,10 +401,6 @@ https://fpgasoftware.intel.com/eula.
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
 ; Analysis & Synthesis ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Guille_Lenovo    ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -416,10 +408,6 @@ https://fpgasoftware.intel.com/eula.
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off ddsAD9854 -c ddsAD9854
-quartus_fit --read_settings_files=off --write_settings_files=off ddsAD9854 -c ddsAD9854
-quartus_asm --read_settings_files=off --write_settings_files=off ddsAD9854 -c ddsAD9854
-quartus_sta ddsAD9854 -c ddsAD9854
-quartus_eda --read_settings_files=off --write_settings_files=off ddsAD9854 -c ddsAD9854
 
 
 
